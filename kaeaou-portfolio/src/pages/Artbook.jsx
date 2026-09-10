@@ -31,6 +31,7 @@ function Artbook() {
   const [loadedImages, setLoadedImages] = useState(0);
   const [activeImage, setActiveImage] = useState(null);
   const [visibleEntries, setVisibleEntries] = useState(new Set());
+  const [menuOpen, setMenuOpen] = useState(false);
 
   /* =========================================================
      PRELOAD
@@ -175,6 +176,42 @@ function Artbook() {
     };
   }, [activeImage]);
 
+  /* =========================================================
+     SIDEBAR — CLOSE ON ESCAPE
+  ========================================================= */
+
+  useEffect(() => {
+    if (!menuOpen) return;
+
+    const handle = (event) => {
+      if (event.key === "Escape") {
+        setMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("keydown", handle);
+
+    return () => {
+      document.removeEventListener("keydown", handle);
+    };
+  }, [menuOpen]);
+
+  /* =========================================================
+     SIDEBAR — LOCK BODY SCROLL
+  ========================================================= */
+
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+
   const progress = Math.round(
     (loadedImages / artwork.length) * 100
   );
@@ -214,7 +251,105 @@ function Artbook() {
             <span>ARTBOOK / 01</span>
             <span>2026</span>
           </div>
+
+          {/* Mobile hamburger */}
+
+          <button
+            className={styles.menuToggle}
+            onClick={() => setMenuOpen(true)}
+            aria-label="Open menu"
+          >
+            <span />
+            <span />
+            <span />
+          </button>
         </nav>
+
+        {/* =================================================
+            MOBILE SIDEBAR
+        ================================================= */}
+
+        <div
+          className={`${styles.sidebarOverlay} ${
+            menuOpen
+              ? styles.sidebarOverlayOpen
+              : ""
+          }`}
+          onClick={() => setMenuOpen(false)}
+          aria-hidden="true"
+        />
+
+        <aside
+          className={`${styles.sidebar} ${
+            menuOpen ? styles.sidebarOpen : ""
+          }`}
+        >
+          <div className={styles.sidebarHeader}>
+            <span className={styles.sidebarBrand}>
+              KAEAOU
+            </span>
+
+            <button
+              className={styles.sidebarClose}
+              onClick={() => setMenuOpen(false)}
+              aria-label="Close menu"
+            >
+              ×
+            </button>
+          </div>
+
+          <nav className={styles.sidebarLinks}>
+            <a
+              href="/"
+              onClick={() => setMenuOpen(false)}
+            >
+              <span>01</span>
+              <strong>Home</strong>
+              <span>↗</span>
+            </a>
+
+            <a
+              href="/moribloom"
+              onClick={() => setMenuOpen(false)}
+            >
+              <span>02</span>
+              <strong>Moribloom</strong>
+              <span>↗</span>
+            </a>
+
+            <a
+              href="/brochure"
+              onClick={() => setMenuOpen(false)}
+            >
+              <span>03</span>
+              <strong>Brochure</strong>
+              <span>↗</span>
+            </a>
+
+            <a
+              href="/sketches"
+              onClick={() => setMenuOpen(false)}
+            >
+              <span>04</span>
+              <strong>Sketches</strong>
+              <span>↗</span>
+            </a>
+
+            <a
+              href="/about"
+              onClick={() => setMenuOpen(false)}
+            >
+              <span>05</span>
+              <strong>About</strong>
+              <span>↗</span>
+            </a>
+          </nav>
+
+          <div className={styles.sidebarFooter}>
+            <span>ARTBOOK / 01</span>
+            <span>2026</span>
+          </div>
+        </aside>
 
         {/* =================================================
             INTRO
@@ -265,8 +400,6 @@ function Artbook() {
                 visibleEntries.has(index)
                   ? styles.entryVisible
                   : ""
-              } ${
-                styles[`entry${index + 1}`]
               }`}
               data-index={index}
               key={image}
@@ -325,7 +458,7 @@ function Artbook() {
 
               <div className={styles.entryFooter}>
                 <span>
-                  KAEAOU —{" "}
+                  SPREAD —{" "}
                   {String(index + 1).padStart(
                     2,
                     "0"
@@ -388,7 +521,7 @@ function Artbook() {
 
             <div className={styles.socialLinks}>
               <a
-                href="https://instagram.com/"
+                href="https://www.instagram.com/kaeaou"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -398,7 +531,7 @@ function Artbook() {
               </a>
 
               <a
-                href="https://tiktok.com/"
+                href="https://tiktok.com/kaeaouu"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -408,12 +541,32 @@ function Artbook() {
               </a>
 
               <a
-                href="https://x.com/"
+                href="https://x.com/kaeaouu"
                 target="_blank"
                 rel="noreferrer"
               >
                 <span>03</span>
-                <strong>X / TWITTER</strong>
+                <strong>X</strong>
+                <span>↗</span>
+              </a>
+
+              <a
+                href="https://vgen.co/kaeaou"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <span>04</span>
+                <strong>VGEN</strong>
+                <span>↗</span>
+              </a>
+
+              <a
+                href="https://artstation.com/kaeaou"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <span>05</span>
+                <strong>ARTSTATION</strong>
                 <span>↗</span>
               </a>
             </div>

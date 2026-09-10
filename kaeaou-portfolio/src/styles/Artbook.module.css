@@ -396,6 +396,7 @@
 .navName {
   transition:
     letter-spacing .4s ease;
+    font-size: 1rem;
 }
 
 .navBrand:hover .navName {
@@ -417,7 +418,7 @@
 
   text-decoration: none;
 
-  font-size: 8px;
+  font-size: 0.8REM;
 
   letter-spacing: .22em;
 }
@@ -474,6 +475,216 @@
     transform:
       translateY(0);
   }
+}
+
+/* =========================================================
+   MOBILE MENU TOGGLE (HAMBURGER)
+========================================================= */
+
+.menuToggle {
+  display: none;
+
+  width: 40px;
+  height: 40px;
+
+  padding: 0;
+
+  border: 1px solid var(--ink);
+  background: transparent;
+
+  cursor: pointer;
+
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+
+  transition: background .3s ease, transform .4s ease;
+}
+
+.menuToggle span {
+  display: block;
+
+  width: 18px;
+  height: 1px;
+
+  background: var(--ink);
+
+  transition: transform .3s ease, width .3s ease;
+}
+
+.menuToggle:hover {
+  background: rgba(36,34,30,.05);
+}
+
+.menuToggle:hover span:nth-child(2) {
+  width: 12px;
+}
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.sidebarOverlay {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 900;
+
+  background: rgba(24,23,20,.55);
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition: opacity .5s ease;
+}
+
+.sidebarOverlayOpen {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.sidebar {
+  position: fixed;
+
+  top: 0;
+  right: 0;
+
+  z-index: 950;
+
+  width: min(85vw, 380px);
+  height: 100vh;
+
+  padding: 30px 8vw 40px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  background: var(--paper);
+
+  border-left: 1px solid var(--line);
+
+  transform: translateX(100%);
+
+  transition: transform .7s cubic-bezier(.77,0,.18,1);
+
+  overflow-y: auto;
+}
+
+.sidebarOpen {
+  transform: translateX(0);
+}
+
+.sidebarHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding-bottom: 18px;
+
+  border-bottom: 1px solid var(--line);
+}
+
+.sidebarBrand {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 26px;
+  letter-spacing: .15em;
+}
+
+.sidebarClose {
+  width: 38px;
+  height: 38px;
+
+  border: 1px solid var(--ink);
+  background: transparent;
+
+  color: var(--ink);
+  font-size: 22px;
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition: transform .4s ease, background .3s ease;
+}
+
+.sidebarClose:hover {
+  transform: rotate(90deg);
+  background: rgba(36,34,30,.05);
+}
+
+.sidebarLinks {
+  display: flex;
+  flex-direction: column;
+
+  flex: 1;
+
+  margin: 40px 0;
+
+  border-top: 1px solid var(--line);
+}
+
+.sidebarLinks a {
+  display: grid;
+
+  grid-template-columns: 30px 1fr auto;
+  align-items: center;
+  gap: 14px;
+
+  padding: 18px 0;
+
+  color: var(--ink);
+  text-decoration: none;
+
+  border-bottom: 1px solid rgba(36,34,30,.12);
+
+  font-size: 10px;
+  letter-spacing: .2em;
+
+  transition: padding .4s cubic-bezier(.2,.8,.2,1),
+              background .3s ease;
+}
+
+.sidebarLinks a span:first-child {
+  color: var(--muted);
+  font-size: 8px;
+}
+
+.sidebarLinks a span:last-child {
+  color: var(--accent);
+  transform: translateX(-5px);
+  transition: transform .4s ease;
+}
+
+.sidebarLinks a:hover {
+  padding-left: 10px;
+  background: rgba(156,63,49,.04);
+}
+
+.sidebarLinks a:hover span:last-child {
+  transform: translateX(0);
+}
+
+.sidebarLinks strong {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: .12em;
+}
+
+.sidebarFooter {
+  display: flex;
+  justify-content: space-between;
+
+  padding-top: 18px;
+
+  border-top: 1px solid var(--line);
+
+  font-size: 8px;
+  letter-spacing: .25em;
+
+  color: var(--muted);
 }
 
 /* =========================================================
@@ -549,6 +760,8 @@
 }
 
 .introContent {
+  min-width: 0;
+
   animation:
     introContent 1.2s .45s both;
 }
@@ -573,7 +786,7 @@
     serif;
 
   font-size:
-    clamp(80px,13vw,200px);
+    clamp(52px,13vw,200px);
 
   line-height: .68;
 
@@ -828,7 +1041,7 @@
 }
 
 /* =========================================================
-   ENTRIES — WAIT FOR SCROLL
+   ENTRIES — UNIFORM SIZE
 ========================================================= */
 
 .entry {
@@ -966,6 +1179,16 @@
 
 .entry:hover::after {
   width: 90px;
+}
+
+/* First / last vertical breathing */
+
+.entry:nth-child(1) {
+  padding-top: 11vw;
+}
+
+.entry:nth-child(10) {
+  padding-bottom: 14vw;
 }
 
 /* =========================================================
@@ -1557,61 +1780,6 @@
 }
 
 /* =========================================================
-   EDITORIAL WIDTHS
-========================================================= */
-
-.entry:nth-child(1) {
-  padding-top: 11vw;
-}
-
-.entry:nth-child(2) {
-  width:
-    min(100%,1050px);
-}
-
-.entry:nth-child(3) {
-  width:
-    min(100%,1150px);
-}
-
-.entry:nth-child(4) {
-  width:
-    min(100%,900px);
-}
-
-.entry:nth-child(5) {
-  width:
-    min(100%,1200px);
-}
-
-.entry:nth-child(6) {
-  width:
-    min(100%,1000px);
-}
-
-.entry:nth-child(7) {
-  width:
-    min(100%,1150px);
-}
-
-.entry:nth-child(8) {
-  width:
-    min(100%,950px);
-}
-
-.entry:nth-child(9) {
-  width:
-    min(100%,1100px);
-}
-
-.entry:nth-child(10) {
-  padding-bottom: 14vw;
-
-  width:
-    min(100%,1200px);
-}
-
-/* =========================================================
    FOOTER
 ========================================================= */
 
@@ -2098,97 +2266,137 @@
 }
 
 /* =========================================================
-   RESPONSIVE
+   RESPONSIVE — SIDEBAR BELOW DESKTOP (<1000px)
 ========================================================= */
 
 @media (max-width: 1000px) {
-  .footer {
-    grid-template-columns:
-      auto 1fr 1fr;
+  /* Show hamburger, hide desktop nav */
 
-    row-gap: 40px;
+  .menuToggle {
+    display: flex;
+
+    justify-self: end;
+
+    grid-column: 3;
+    grid-row: 1;
+  }
+
+  .navLinks,
+  .navInfo {
+    display: none;
+  }
+
+  .navbar {
+    grid-template-columns: 1fr auto;
+  }
+
+  /* Footer stacks */
+
+  .footer {
+    grid-template-columns: auto 1fr;
+
+    align-items: start;
+
+    row-gap: 35px;
+
+    padding: 55px 7vw;
+  }
+
+  .footerCenter {
+    grid-column: 1 / -1;
+
+    padding: 25px 0 0;
+
+    border-left: none;
+
+    border-top: 1px solid var(--line);
   }
 
   .footerSocials {
-    grid-column:
-      2 / 4;
+    grid-column: 1 / -1;
   }
 
   .footerMeta {
-    grid-column:
-      3;
+    grid-column: 1 / -1;
 
-    grid-row: 1;
+    flex-direction: row;
+
+    justify-content: space-between;
+
+    text-align: left;
+  }
+
+  .socialLinks a {
+    min-width: 0;
   }
 }
+
+/* =========================================================
+   SMALL TABLET / LARGE PHONE (<700px)
+========================================================= */
 
 @media (max-width: 700px) {
   .navbar {
     height: 65px;
-
-    grid-template-columns:
-      1fr auto;
-
-    padding:
-      0 5vw;
-  }
-
-  .navLinks {
-    display: none;
+    padding: 0 5vw;
   }
 
   .navInfo {
     font-size: 7px;
   }
 
-  .navInfo span:first-child {
-    display: none;
-  }
-
   .introduction {
-    min-height: 500px;
+    min-height: auto;
 
-    padding:
-      80px 8vw;
+    padding: 100px 6vw 80px;
 
-    grid-template-columns:
-      35px 1fr;
+    grid-template-columns: 35px 1fr;
+
+    align-items: start;
   }
 
-  .introStamp {
-    display: none;
+  .introNumber {
+    padding-top: 8px;
   }
 
   .introContent h1 {
-    font-size:
-      clamp(
-        65px,
-        20vw,
-        140px
-      );
+    font-size: clamp(56px, 17vw, 120px);
+
+    line-height: .78;
+
+    letter-spacing: -.03em;
   }
 
   .introContent h1 em {
-    margin-left: 8vw;
+    margin-left: 0;
+
+    display: block;
+
+    padding-left: 6vw;
   }
 
   .introRule {
-    width: 80%;
+    width: 100%;
 
-    margin-top: 45px;
+    margin: 40px 0 0;
+  }
+
+  .eyebrow {
+    font-size: 8px;
+
+    letter-spacing: .3em;
   }
 
   .introDescription {
-    margin-left: 5%;
+    margin-left: 0;
+
+    max-width: 100%;
+
+    font-size: 9px;
   }
 
   .entry {
-    padding:
-      70px 5vw;
-  }
-
-  .entry:nth-child(n) {
-    width: 100%;
+    padding: 70px 5vw;
   }
 
   .entryMeta,
@@ -2213,8 +2421,7 @@
     inset: -5px;
   }
 
-  .entry:hover
-  .imageFrame::before {
+  .entry:hover .imageFrame::before {
     inset: -8px;
   }
 
@@ -2228,50 +2435,16 @@
 
   .footer {
     min-height: 500px;
-
-    padding:
-      50px 7vw;
-
-    grid-template-columns:
-      auto 1fr;
-
-    align-items: start;
-
-    gap: 25px;
+    padding: 50px 7vw;
   }
 
-  .footerCenter {
-    grid-column:
-      1 / -1;
-
-    padding:
-      25px 0 0;
-
-    border-left: none;
-
-    border-top:
-      1px solid var(--line);
+  .sidebar {
+    width: min(92vw, 340px);
+    padding: 24px 7vw 32px;
   }
 
-  .footerSocials {
-    grid-column:
-      1 / -1;
-  }
-
-  .footerMeta {
-    grid-column:
-      1 / -1;
-
-    flex-direction: row;
-
-    justify-content:
-      space-between;
-
-    text-align: left;
-  }
-
-  .socialLinks a {
-    min-width: 0;
+  .sidebarLinks strong {
+    font-size: 20px;
   }
 
   .lightboxArrow {
@@ -2279,17 +2452,61 @@
     height: 45px;
   }
 
-  .previous {
-    left: 12px;
-  }
-
-  .next {
-    right: 12px;
-  }
+  .previous { left: 12px; }
+  .next { right: 12px; }
 
   .lightboxImage {
     max-width: 92vw;
     max-height: 80vh;
+  }
+}
+
+/* =========================================================
+   TINY PHONES (<420px)
+========================================================= */
+
+@media (max-width: 420px) {
+  .introduction {
+    padding: 80px 6vw 60px;
+
+    grid-template-columns: 28px 1fr;
+  }
+
+  .introContent h1 {
+    font-size: clamp(44px, 15vw, 90px);
+
+    line-height: .82;
+
+    letter-spacing: -.02em;
+  }
+
+  .introContent h1 em {
+    padding-left: 4vw;
+  }
+
+  .introRule {
+    margin-top: 30px;
+  }
+
+  .eyebrow {
+    font-size: 7px;
+
+    letter-spacing: .25em;
+
+    margin-bottom: 12px;
+  }
+
+  .sidebarLinks a {
+    grid-template-columns: 22px 1fr auto;
+    padding: 14px 0;
+  }
+
+  .sidebarLinks strong {
+    font-size: 17px;
+  }
+
+  .entryFooter span:first-child {
+    font-size: 6px;
   }
 }
 
@@ -2316,7 +2533,10 @@
   .entry {
     opacity: 1;
 
-    transform:
-      none;
+    transform: none;
+  }
+
+  .sidebar {
+    transition: none;
   }
 }

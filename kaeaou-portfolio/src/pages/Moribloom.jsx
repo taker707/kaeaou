@@ -29,12 +29,37 @@ const artwork = [
   { src: BCD12, number: "12", layout: "finalImage" },
 ];
 
+const navItems = [
+  { href: "/", label: "HOME" },
+  { href: "/brochure", label: "BROCHURE" },
+  { href: "/artbook", label: "ARTBOOK" },
+  { href: "/sketches", label: "SKETCHES" },
+  { href: "/about", label: "ABOUT" },
+];
+
+const socials = [
+  { handle: "@kaeaou", label: "INSTAGRAM", href: "#" },
+  { handle: "@kaeaouu", label: "TIKTOK", href: "#" },
+  { handle: "@kaeaouu", label: "X / TWITTER", href: "#" },
+  { handle: "@kaeaou", label: "VGEN", href: "#" },
+  { handle: "@kaeaou", label: "ARTSTATION", href: "#" },
+];
+
 export default function Moribloom() {
   const [loading, setLoading] = useState(true);
   const [activeSection, setActiveSection] = useState("01");
 
   // Lightbox state
   const [selectedImage, setSelectedImage] = useState(null);
+
+  // Sidebar state (mobile / tablet)
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  // Navbar hide-on-scroll state (desktop)
+  const [navbarHidden, setNavbarHidden] = useState(false);
+
+  // Active nav link (hover/focus)
+  const [activeNav, setActiveNav] = useState(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -54,6 +79,29 @@ export default function Moribloom() {
         setLoading(false);
       }, 700);
     });
+  }, []);
+
+  // Hide navbar when scrolling down, show when scrolling up
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollY && currentScrollY > 80) {
+        setNavbarHidden(true);
+      } else {
+        setNavbarHidden(false);
+      }
+
+      lastScrollY = currentScrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   // Scroll reveal observer
@@ -83,11 +131,12 @@ export default function Moribloom() {
     };
   }, []);
 
-  // Close lightbox with Escape
+  // Close lightbox / sidebar with Escape
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.key === "Escape") {
         setSelectedImage(null);
+        setSidebarOpen(false);
       }
     };
 
@@ -142,30 +191,153 @@ export default function Moribloom() {
       </div>
 
       {/* =========================
-          NAVBAR
+          NAVBAR (Desktop only — elaborate)
       ========================== */}
 
-      <nav className={styles.navbar}>
-        <a href="/" className={styles.logo}>
-          KAEAOU
-        </a>
+      <nav
+        className={`${styles.navbar} ${
+          navbarHidden ? styles.navbarHidden : ""
+        }`}
+      >
+        {/* Top metadata strip */}
+        <div className={styles.navMeta}>
+          <span className={styles.navMetaLeft}>
+            KAEAOU ARCHIVE · MORIBLOOM
+          </span>
 
-        <div className={styles.navLinks}>
-          <a href="/">HOME</a>
-          <a href="/brochure">BROCHURE</a>
-          <a href="/artbook">ARTBOOK</a>
-          <a href="/sketches">SKETCHES</a>
-          <a href="/about">ABOUT</a>
+          <span className={styles.navMetaCenter}>
+            08 — 09 — 26
+          </span>
+
+          <span className={styles.navMetaRight}>
+            BCD 001—012
+          </span>
         </div>
 
-        <div className={styles.navRight}>
-          <span>PROJECT 04</span>
-          <span>2026</span>
+        {/* Main navbar row */}
+        <div className={styles.navMain}>
+          {/* Logo block */}
+          <a
+            href="/"
+            className={styles.logoBlock}
+            onMouseEnter={() => setActiveNav("logo")}
+            onMouseLeave={() => setActiveNav(null)}
+          >
+            <span className={styles.logoMark}>
+              <span className={styles.logoMarkInner} />
+            </span>
+
+            <span className={styles.logoText}>
+              <strong>KAEAOU</strong>
+              <span className={styles.logoSub}>
+                VISUAL ARTIST
+              </span>
+            </span>
+          </a>
+
+          {/* Centered nav links with indices + hover preview */}
+          <div className={styles.navLinks}>
+            {navItems.map((item, index) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className={styles.navLink}
+                onMouseEnter={() => setActiveNav(item.label)}
+                onMouseLeave={() => setActiveNav(null)}
+              >
+                <span className={styles.navLinkIndex}>
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+
+                <span className={styles.navLinkLabel}>
+                  {item.label}
+                </span>
+
+                <span className={styles.navLinkDot} />
+              </a>
+            ))}
+          </div>
+
+          {/* Right side: project + status + CTA */}
+          <div className={styles.navRight}>
+            <div className={styles.navStatus}>
+              <span className={styles.navStatusDot} />
+              <span>ONLINE</span>
+            </div>
+          </div>
         </div>
+
+        {/* Hover indicator line (follows hovered item) */}
+        <div
+          className={`${styles.navIndicator} ${
+            activeNav ? styles.navIndicatorActive : ""
+          }`}
+        />
       </nav>
 
       {/* =========================
-          PROGRESS RAIL
+          SIDEBAR TOGGLE (Mobile / Tablet)
+      ========================== */}
+
+      <button
+        type="button"
+        className={`${styles.sidebarToggle} ${
+          sidebarOpen ? styles.sidebarToggleOpen : ""
+        }`}
+        onClick={() => setSidebarOpen((prev) => !prev)}
+        aria-label={sidebarOpen ? "Close menu" : "Open menu"}
+        aria-expanded={sidebarOpen}
+      >
+        <span />
+        <span />
+      </button>
+
+      {/* =========================
+          SIDEBAR (Mobile / Tablet)
+      ========================== */}
+
+      <aside
+        className={`${styles.sidebar} ${
+          sidebarOpen ? styles.sidebarOpen : ""
+        }`}
+        aria-hidden={!sidebarOpen}
+      >
+        <div className={styles.sidebarInner}>
+          <span className={styles.sidebarLabel}>
+            KAEAOU / 004
+          </span>
+
+          <nav className={styles.sidebarNav}>
+            {navItems.map((item, index) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className={styles.sidebarLink}
+                onClick={() => setSidebarOpen(false)}
+              >
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                {item.label}
+              </a>
+            ))}
+          </nav>
+
+          <div className={styles.sidebarFooter}>
+            <span>MORIBLOOM</span>
+            <span>2026</span>
+          </div>
+        </div>
+      </aside>
+
+      {sidebarOpen && (
+        <div
+          className={styles.sidebarBackdrop}
+          onClick={() => setSidebarOpen(false)}
+          aria-hidden="true"
+        />
+      )}
+
+      {/* =========================
+          PROGRESS RAIL (Desktop only)
       ========================== */}
 
       <aside className={styles.progressRail}>
@@ -326,7 +498,6 @@ export default function Moribloom() {
 
             <div className={styles.finalTitle}>
               <span>THE END</span>
-              <strong>12</strong>
             </div>
 
             <div className={styles.finalStamp}>
@@ -337,15 +508,6 @@ export default function Moribloom() {
           <div className={styles.finalRule} />
 
           <div className={styles.finalBottom}>
-            <span>PROJECT COMPLETE</span>
-
-            <a
-              href="/"
-              className={styles.backLink}
-            >
-              RETURN TO ARCHIVE
-            </a>
-
             <span>2026</span>
           </div>
         </section>
@@ -373,32 +535,30 @@ export default function Moribloom() {
                 FIND KAEAOU
               </span>
 
-              <a
-                href="#"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <span>01</span>
-                INSTAGRAM
-              </a>
+              <div className={styles.socialList}>
+                {socials.map((social, index) => (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={styles.socialLink}
+                  >
+                    <span className={styles.socialIndex}>
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
 
-              <a
-                href="#"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <span>02</span>
-                TIKTOK
-              </a>
+                    <span className={styles.socialText}>
+                      <strong>{social.label}</strong>
+                      <span className={styles.socialHandle}>
+                        {social.handle}
+                      </span>
+                    </span>
 
-              <a
-                href="#"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <span>03</span>
-                X
-              </a>
+                    <span className={styles.socialArrow}>↗</span>
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
 

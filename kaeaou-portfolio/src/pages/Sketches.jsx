@@ -527,15 +527,20 @@ function Sketches() {
               <span>NAVIGATE</span>
 
               <a href="/">HOME ↗</a>
+              <a href="/moribloom">MORIBLOOM ↗</a>
+              <a href="/artbook">ARTBOOK ↗</a>
+              <a href="/brochure">BROCHURE ↗</a>
               <a href="/about">ABOUT ↗</a>
             </div>
 
             <div className={styles.footerLinks}>
               <span>CONNECT</span>
 
-              <a href="#">INSTAGRAM ↗</a>
-              <a href="#">TIKTOK ↗</a>
-              <a href="#">X ↗</a>
+              <a href="https://instagram.com/kaeaou" target="_blank">INSTAGRAM ↗</a>
+              <a href="https://tiktok.com/kaeaouu" target="_blank">TIKTOK ↗</a>
+              <a href="https://x.com/kaeaouu" target="_blank">X ↗</a>
+              <a href="https://vgen.co/kaeaou" target="_blank">VGEN ↗</a>
+              <a href="https://artstation.com/kaeaou" target="_blank">ARTSTATION ↗</a>
             </div>
           </div>
 

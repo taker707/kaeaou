@@ -870,7 +870,8 @@
   }
 
   .navCenter,
-  .navLinks {
+  .navLinks,
+  .heroSideText {
     display: none;
   }
 

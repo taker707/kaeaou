@@ -842,6 +842,22 @@ function Hero() {
               >
                 X
               </a>
+
+              <a
+                href="https://vgen.co/kaeaou"
+                target="_blank"
+                rel="noreferrer"
+              >
+                VGEN
+              </a>
+
+              <a
+                href="https://www.artstation.com/kaeaou"
+                target="_blank"
+                rel="noreferrer"
+              >
+                ARTSTATION
+              </a>
             </div>
 
             <div
@@ -955,6 +971,22 @@ function Hero() {
                   rel="noreferrer"
                 >
                   X
+                </a>
+
+                <a
+                  href="https://vgen.co/kaeaou"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  VGEN
+                </a>
+
+                <a
+                  href="https://www.artstation.com/kaeaou"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  ARTSTATION
                 </a>
               </div>
 

@@ -11,10 +11,11 @@ function About() {
         </div>
 
         <div className={styles.navLinks}>
-          <a href="/">CONCEPT</a>
-          <a href="/">ILLUSTRATION</a>
+          <a href="/">HOME</a>
+          <a href="/moribloom">MORIBLOOM</a>
+          <a href="/artbook">ARTBOOK</a>
+          <a href="/brochure">BROCHURE</a>
           <a href="/sketches">SKETCHES</a>
-          <a href="/about">ABOUT</a>
         </div>
 
         <div className={styles.navDetails}>
@@ -78,17 +79,15 @@ function About() {
             </span>
 
             <p className={styles.lead}>
-              I'm KAEAOU, a visual artist and illustrator interested
-              in concept art, character design, and visual
-              storytelling.
+              I’m Kae! An illustrator who loves cute characters, bright colors, and bringing fun ideas to life.
             </p>
 
             <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo labore unde, officiis fuga sunt sequi quod alias. A ipsum, nisi dolorum explicabo vel quis ab sed obcaecati adipisci nemo saepe.
+              I enjoy experimenting with different styles and turning random ideas into something I can share with others.
             </p>
 
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia tempora pariatur magni quasi ipsum quo,
+              Currently, I'm still learning and finding my own style as I grow as an artist.
             </p>
 
             <div className={styles.descriptionMark}>
@@ -146,7 +145,7 @@ function About() {
             <span>SOCIAL / CONTACT</span>
 
             <a
-              href="https://instagram.com/yourusername"
+              href="https://www.instagram.com/kaeaou?igsi=MWQ3bjNscDBoMnIwaw%3D%3D&utm_source=qr"
               target="_blank"
               rel="noreferrer"
             >
@@ -154,7 +153,7 @@ function About() {
             </a>
 
             <a
-              href="https://tiktok.com/@yourusername"
+              href="https://www.tiktok.com/@kaeaouu?_r=1&_t=ZS-99QjPRQZm5q"
               target="_blank"
               rel="noreferrer"
             >
@@ -162,11 +161,27 @@ function About() {
             </a>
 
             <a
-              href="https://x.com/yourusername"
+              href="https://x.com/kaeaouu"
               target="_blank"
               rel="noreferrer"
             >
-              X — ARCHIVE
+              X — TWITTER
+            </a>
+
+            <a
+              href="https://vgen.co/kaeaou"
+              target="_blank"
+              rel="noreferrer"
+            >
+              VG — VGEN
+            </a>
+
+            <a
+              href="https://www.artstation.com/kaeaou"
+              target="_blank"
+              rel="noreferrer"
+            >
+              AS — ARTSTATION
             </a>
 
             <span style={{ marginTop: "8px" }}>
