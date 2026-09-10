@@ -3530,3 +3530,7 @@
       scale(var(--scale));
   }
 }
+
+.gridCell:nth-child(20) .illustrationImage {
+  object-position: 65% center;
+}

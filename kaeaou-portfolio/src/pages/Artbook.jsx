@@ -305,7 +305,6 @@ function Artbook() {
             >
               <span>01</span>
               <strong>Home</strong>
-              <span>↗</span>
             </a>
 
             <a
@@ -314,7 +313,6 @@ function Artbook() {
             >
               <span>02</span>
               <strong>Moribloom</strong>
-              <span>↗</span>
             </a>
 
             <a
@@ -323,7 +321,6 @@ function Artbook() {
             >
               <span>03</span>
               <strong>Brochure</strong>
-              <span>↗</span>
             </a>
 
             <a
@@ -332,7 +329,6 @@ function Artbook() {
             >
               <span>04</span>
               <strong>Sketches</strong>
-              <span>↗</span>
             </a>
 
             <a
@@ -341,7 +337,6 @@ function Artbook() {
             >
               <span>05</span>
               <strong>About</strong>
-              <span>↗</span>
             </a>
           </nav>
 
@@ -527,7 +522,6 @@ function Artbook() {
               >
                 <span>01</span>
                 <strong>INSTAGRAM</strong>
-                <span>↗</span>
               </a>
 
               <a
@@ -537,7 +531,6 @@ function Artbook() {
               >
                 <span>02</span>
                 <strong>TIKTOK</strong>
-                <span>↗</span>
               </a>
 
               <a
@@ -547,7 +540,6 @@ function Artbook() {
               >
                 <span>03</span>
                 <strong>X</strong>
-                <span>↗</span>
               </a>
 
               <a
@@ -557,7 +549,6 @@ function Artbook() {
               >
                 <span>04</span>
                 <strong>VGEN</strong>
-                <span>↗</span>
               </a>
 
               <a
@@ -567,7 +558,6 @@ function Artbook() {
               >
                 <span>05</span>
                 <strong>ARTSTATION</strong>
-                <span>↗</span>
               </a>
             </div>
           </div>

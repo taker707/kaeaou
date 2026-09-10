@@ -462,7 +462,6 @@ export default function Brochure() {
 
                 <div className={styles.photoZoom} aria-hidden="true">
                   <span>VIEW</span>
-                  <span>↗</span>
                 </div>
               </div>
 
@@ -782,7 +781,6 @@ export default function Brochure() {
                 rel="noreferrer"
               >
                 <span>Instagram</span>
-                <span>↗</span>
               </a>
 
               <a
@@ -791,7 +789,6 @@ export default function Brochure() {
                 rel="noreferrer"
               >
                 <span>TikTok</span>
-                <span>↗</span>
               </a>
 
               <a
@@ -800,7 +797,6 @@ export default function Brochure() {
                 rel="noreferrer"
               >
                 <span>X</span>
-                <span>↗</span>
               </a>
 
               <a
@@ -809,7 +805,6 @@ export default function Brochure() {
                 rel="noreferrer"
               >
                 <span>VGEN</span>
-                <span>↗</span>
               </a>
 
               <a
@@ -818,7 +813,6 @@ export default function Brochure() {
                 rel="noreferrer"
               >
                 <span>ARTSTATION</span>
-                <span>↗</span>
               </a>
             </div>
           </div>

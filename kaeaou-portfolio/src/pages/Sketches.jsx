@@ -340,7 +340,6 @@ function Sketches() {
             <a href="/" onClick={() => setMenuOpen(false)}>
               <span>01</span>
               <strong>HOME</strong>
-              <em>↗</em>
             </a>
 
             <a
@@ -349,7 +348,6 @@ function Sketches() {
             >
               <span>02</span>
               <strong>BROCHURE</strong>
-              <em>↗</em>
             </a>
 
             <a
@@ -358,7 +356,6 @@ function Sketches() {
             >
               <span>03</span>
               <strong>ARTBOOK</strong>
-              <em>↗</em>
             </a>
 
             <a
@@ -367,7 +364,6 @@ function Sketches() {
             >
               <span>04</span>
               <strong>MORIBLOOM</strong>
-              <em>↗</em>
             </a>
 
             <a
@@ -376,7 +372,6 @@ function Sketches() {
             >
               <span>05</span>
               <strong>ABOUT</strong>
-              <em>↗</em>
             </a>
           </div>
 
@@ -526,11 +521,11 @@ function Sketches() {
             <div className={styles.footerLinks}>
               <span>NAVIGATE</span>
 
-              <a href="/">HOME ↗</a>
-              <a href="/moribloom">MORIBLOOM ↗</a>
-              <a href="/artbook">ARTBOOK ↗</a>
-              <a href="/brochure">BROCHURE ↗</a>
-              <a href="/about">ABOUT ↗</a>
+              <a href="/">HOME</a>
+              <a href="/moribloom">MORIBLOOM</a>
+              <a href="/artbook">ARTBOOK</a>
+              <a href="/brochure">BROCHURE</a>
+              <a href="/about">ABOUT</a>
             </div>
 
             <div className={styles.footerLinks}>
@@ -587,17 +582,14 @@ function Sketches() {
           <a href="/">
             <span>01</span>
             <strong>INSTAGRAM</strong>
-            <em>↗</em>
           </a>
           <a href="/">
             <span>02</span>
             <strong>TIKTOK</strong>
-            <em>↗</em>
           </a>
           <a href="/">
             <span>03</span>
             <strong>X</strong>
-            <em>↗</em>
           </a>
 
         </div>

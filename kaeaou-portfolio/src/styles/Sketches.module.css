@@ -2420,3 +2420,7 @@
     transform: translateY(0);
   }
 }
+
+.card:nth-child(30) .imageWrap img {
+  object-position: 15% center;
+}

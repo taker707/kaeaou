@@ -64,7 +64,7 @@ function Hero() {
       scale: "1.03",
     },
     {
-      id: 4,
+      id: 3,
       image: illus17,
       rotate: "4deg",
       translateX: "-8px",
@@ -72,7 +72,7 @@ function Hero() {
       scale: "1.02",
     },
     {
-      id: 5,
+      id: 4,
       image: illus5,
       rotate: "-4deg",
       translateX: "6px",
@@ -80,7 +80,7 @@ function Hero() {
       scale: "1.04",
     },
     {
-      id: 6,
+      id: 5,
       image: illus6,
       rotate: "2deg",
       translateX: "-5px",
@@ -88,7 +88,7 @@ function Hero() {
       scale: "0.96",
     },
     {
-      id: 7,
+      id: 6,
       image: illus7,
       rotate: "-5deg",
       translateX: "10px",
@@ -96,31 +96,31 @@ function Hero() {
       scale: "1.06",
     },
     {
-      id: 8,
-      image: illus8,
+      id: 7,
+      image: illus9,
       rotate: "3deg",
       translateX: "-7px",
       translateY: "6px",
       scale: "1",
     },
     {
-      id: 9,
-      image: illus9,
+      id: 8,
+      image: illus10,
       rotate: "-2deg",
       translateX: "5px",
       translateY: "-5px",
       scale: "1.04",
     },
     {
-      id: 10,
-      image: illus10,
+      id: 9,
+      image: illus8,
       rotate: "5deg",
       translateX: "-10px",
       translateY: "4px",
       scale: "0.98",
     },
     {
-      id: 11,
+      id: 10,
       image: illus11,
       rotate: "-4deg",
       translateX: "8px",
@@ -128,23 +128,23 @@ function Hero() {
       scale: "1.02",
     },
     {
-      id: 12,
-      image: illus14,
+      id: 11,
+      image: illus13,
       rotate: "3deg",
       translateX: "-5px",
       translateY: "8px",
       scale: "1.05",
     },
     {
-      id: 13,
-      image: illus13,
+      id: 12,
+      image: illus14,
       rotate: "-5deg",
       translateX: "7px",
       translateY: "-3px",
       scale: "1.03",
     },
     {
-      id: 14,
+      id: 13,
       image: illus12,
       rotate: "2deg",
       translateX: "-8px",
@@ -152,7 +152,7 @@ function Hero() {
       scale: "0.97",
     },
     {
-      id: 16,
+      id: 14,
       image: illus21,
       rotate: "4deg",
       translateX: "-7px",
@@ -160,7 +160,7 @@ function Hero() {
       scale: "1.05",
     },
     {
-      id: 18,
+      id: 15,
       image: illus19,
       rotate: "2deg",
       translateX: "-4px",
@@ -168,7 +168,7 @@ function Hero() {
       scale: "1.03",
     },
     {
-      id: 19,
+      id: 16,
       image: illus20,
       rotate: "-4deg",
       translateX: "9px",
@@ -176,7 +176,7 @@ function Hero() {
       scale: "1.04",
     },
     {
-      id: 20,
+      id: 17,
       image: illus2,
       rotate: "5deg",
       translateX: "-10px",
@@ -184,7 +184,7 @@ function Hero() {
       scale: "0.96",
     },
     {
-      id: 21,
+      id: 18,
       image: illus22,
       rotate: "-2deg",
       translateX: "7px",
@@ -192,7 +192,7 @@ function Hero() {
       scale: "1.02",
     },
     {
-      id: 22,
+      id: 19,
       image: illus23,
       rotate: "6deg",
       translateX: "-5px",
@@ -200,7 +200,7 @@ function Hero() {
       scale: "0.95",
     },
     {
-      id: 23,
+      id: 20,
       image: illus24,
       rotate: "-4deg",
       translateX: "12px",
@@ -208,7 +208,7 @@ function Hero() {
       scale: "1.04",
     },
     {
-      id: 24,
+      id: 21,
       image: illus25,
       rotate: "3deg",
       translateX: "-7px",
@@ -216,7 +216,7 @@ function Hero() {
       scale: "1",
     },
     {
-      id: 25,
+      id: 22,
       image: illus26,
       rotate: "-2deg",
       translateX: "5px",
@@ -224,7 +224,7 @@ function Hero() {
       scale: "1.03",
     },
     {
-      id: 26,
+      id: 23,
       image: illus27,
       rotate: "5deg",
       translateX: "-9px",
@@ -232,7 +232,7 @@ function Hero() {
       scale: "0.97",
     },
     {
-      id: 27,
+      id: 24,
       image: illus4,
       rotate: "-4deg",
       translateX: "11px",
@@ -544,7 +544,7 @@ function Hero() {
           </div>
 
           <div className={styles.heroTopLine}>
-            <span>KA / 1999—2026</span>
+            <span>KAE / 2023—2026</span>
             <span>CONCEPT ART — ILLUSTRATION</span>
           </div>
 
@@ -723,7 +723,7 @@ function Hero() {
               </p>
             </div>
 
-            <div className={styles.illustrationNumber}>27</div>
+            <div className={styles.illustrationNumber}>24</div>
           </div>
 
           <div

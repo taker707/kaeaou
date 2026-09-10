@@ -414,7 +414,7 @@ export default function Moribloom() {
 
           <div className={styles.heroBottom}>
             <div className={styles.heroInfo}>
-              <span>BCD SERIES</span>
+              <span>PROJECT SERIES</span>
               <span>12 WORKS</span>
             </div>
 
@@ -492,7 +492,7 @@ export default function Moribloom() {
         <section className={styles.finalSection}>
           <div className={styles.finalGrid}>
             <div className={styles.finalSide}>
-              <span>BCD / 012</span>
+              <span>MORIBLOOM / 012</span>
               <span>END OF SERIES</span>
             </div>
 
@@ -554,8 +554,6 @@ export default function Moribloom() {
                         {social.handle}
                       </span>
                     </span>
-
-                    <span className={styles.socialArrow}>↗</span>
                   </a>
                 ))}
               </div>
