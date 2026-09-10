@@ -606,22 +606,6 @@ function Artbook() {
               ).padStart(2, "0")}
             </div>
 
-            <button
-              className={`${styles.lightboxArrow} ${styles.previous}`}
-              onClick={(event) => {
-                event.stopPropagation();
-
-                setActiveImage((current) =>
-                  current === 0
-                    ? artwork.length - 1
-                    : current - 1
-                );
-              }}
-              aria-label="Previous artwork"
-            >
-              ←
-            </button>
-
             <img
               className={styles.lightboxImage}
               src={artwork[activeImage]}
@@ -632,23 +616,6 @@ function Artbook() {
                 event.stopPropagation()
               }
             />
-
-            <button
-              className={`${styles.lightboxArrow} ${styles.next}`}
-              onClick={(event) => {
-                event.stopPropagation();
-
-                setActiveImage((current) =>
-                  current ===
-                  artwork.length - 1
-                    ? 0
-                    : current + 1
-                );
-              }}
-              aria-label="Next artwork"
-            >
-              →
-            </button>
           </div>
         )}
       </main>

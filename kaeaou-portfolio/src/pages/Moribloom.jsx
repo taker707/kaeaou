@@ -593,7 +593,7 @@ export default function Moribloom() {
             onClick={(event) => event.stopPropagation()}
           >
             <span>
-              MORIBLOOM / {selectedImage.number}
+              FRAME / {selectedImage.number}
             </span>
 
             <span>
