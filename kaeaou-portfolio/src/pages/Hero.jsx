@@ -33,6 +33,9 @@ import illus25 from "../assets/illustration/illus25.jpg";
 import illus26 from "../assets/illustration/illus26.jpg";
 import illus27 from "../assets/illustration/illus27.jpg";
 import illus28 from "../assets/illustration/illus28.png";
+import illus29 from "../assets/illustration/illus29.jpg";
+import illus30 from "../assets/illustration/illus30.jpg";
+import illus31 from "../assets/illustration/illus31.jpg";
 
 import styles from "../styles/Hero.module.css";
 
@@ -97,6 +100,30 @@ function Hero() {
     },
     {
       id: 7,
+      image: illus29,
+      rotate: "1deg",
+      translateX: "-6px",
+      translateY: "-3px",
+      scale: "1.02",
+    },
+    {
+      id: 8,
+      image: illus30,
+      rotate: "-3deg",
+      translateX: "7px",
+      translateY: "5px",
+      scale: "1.01",
+    },
+    {
+      id: 9,
+      image: illus31,
+      rotate: "2deg",
+      translateX: "-4px",
+      translateY: "-7px",
+      scale: "1.03",
+    },
+    {
+      id: 10,
       image: illus9,
       rotate: "3deg",
       translateX: "-7px",
@@ -104,7 +131,7 @@ function Hero() {
       scale: "1",
     },
     {
-      id: 8,
+      id: 11,
       image: illus10,
       rotate: "-2deg",
       translateX: "5px",
@@ -112,7 +139,7 @@ function Hero() {
       scale: "1.04",
     },
     {
-      id: 9,
+      id: 12,
       image: illus8,
       rotate: "5deg",
       translateX: "-10px",
@@ -120,7 +147,7 @@ function Hero() {
       scale: "0.98",
     },
     {
-      id: 10,
+      id: 13,
       image: illus11,
       rotate: "-4deg",
       translateX: "8px",
@@ -128,7 +155,7 @@ function Hero() {
       scale: "1.02",
     },
     {
-      id: 11,
+      id: 14,
       image: illus13,
       rotate: "3deg",
       translateX: "-5px",
@@ -136,7 +163,7 @@ function Hero() {
       scale: "1.05",
     },
     {
-      id: 12,
+      id: 15,
       image: illus14,
       rotate: "-5deg",
       translateX: "7px",
@@ -144,7 +171,7 @@ function Hero() {
       scale: "1.03",
     },
     {
-      id: 13,
+      id: 16,
       image: illus12,
       rotate: "2deg",
       translateX: "-8px",
@@ -152,7 +179,7 @@ function Hero() {
       scale: "0.97",
     },
     {
-      id: 14,
+      id: 17,
       image: illus21,
       rotate: "4deg",
       translateX: "-7px",
@@ -160,7 +187,7 @@ function Hero() {
       scale: "1.05",
     },
     {
-      id: 15,
+      id: 18,
       image: illus19,
       rotate: "2deg",
       translateX: "-4px",
@@ -168,7 +195,7 @@ function Hero() {
       scale: "1.03",
     },
     {
-      id: 16,
+      id: 19,
       image: illus20,
       rotate: "-4deg",
       translateX: "9px",
@@ -176,7 +203,7 @@ function Hero() {
       scale: "1.04",
     },
     {
-      id: 17,
+      id: 20,
       image: illus2,
       rotate: "5deg",
       translateX: "-10px",
@@ -184,7 +211,7 @@ function Hero() {
       scale: "0.96",
     },
     {
-      id: 18,
+      id: 21,
       image: illus22,
       rotate: "-2deg",
       translateX: "7px",
@@ -192,7 +219,7 @@ function Hero() {
       scale: "1.02",
     },
     {
-      id: 19,
+      id: 22,
       image: illus23,
       rotate: "6deg",
       translateX: "-5px",
@@ -200,7 +227,7 @@ function Hero() {
       scale: "0.95",
     },
     {
-      id: 20,
+      id: 23,
       image: illus24,
       rotate: "-4deg",
       translateX: "12px",
@@ -208,7 +235,7 @@ function Hero() {
       scale: "1.04",
     },
     {
-      id: 21,
+      id: 24,
       image: illus25,
       rotate: "3deg",
       translateX: "-7px",
@@ -216,7 +243,7 @@ function Hero() {
       scale: "1",
     },
     {
-      id: 22,
+      id: 25,
       image: illus26,
       rotate: "-2deg",
       translateX: "5px",
@@ -224,7 +251,7 @@ function Hero() {
       scale: "1.03",
     },
     {
-      id: 23,
+      id: 26,
       image: illus27,
       rotate: "5deg",
       translateX: "-9px",
@@ -232,7 +259,7 @@ function Hero() {
       scale: "0.97",
     },
     {
-      id: 24,
+      id: 27,
       image: illus4,
       rotate: "-4deg",
       translateX: "11px",
@@ -575,7 +602,6 @@ function Hero() {
 
             <a href="#project" className={styles.heroScroll}>
               <span>SCROLL TO EXPLORE</span>
-              <span className={styles.scrollArrow}>↓</span>
             </a>
           </div>
         </section>
@@ -723,7 +749,7 @@ function Hero() {
               </p>
             </div>
 
-            <div className={styles.illustrationNumber}>24</div>
+            <div className={styles.illustrationNumber}>27</div>
           </div>
 
           <div
@@ -867,7 +893,7 @@ function Hero() {
             >
               <span>ARCHIVE / 2026</span>
               <span>KA / 01</span>
-              <span>EST. 1999</span>
+              <span>EST. 2023</span>
             </div>
           </div>
 
@@ -997,7 +1023,7 @@ function Hero() {
               data-reveal
             >
               <span>KA / 01</span>
-              <span>EST. 1999</span>
+              <span>EST. 2023</span>
               <span>© 2026 KAEAOU</span>
             </div>
 
