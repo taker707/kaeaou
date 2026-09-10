@@ -1,9 +1,13 @@
+import { useState } from "react";
 import styles from "../styles/About.module.css";
 
 function About() {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
   return (
     <main className={styles.page}>
 
+      {/* Desktop Navbar – hidden on mobile/tablet via CSS */}
       <nav className={styles.navbar}>
         <div className={styles.navBrand}>
           <a href="/">KAEAOU</a>
@@ -23,6 +27,57 @@ function About() {
           <span>KA / 01</span>
         </div>
       </nav>
+
+      {/* Sidebar Toggle Button – shown on any screen < desktop */}
+      <button
+        className={`${styles.sidebarToggle} ${sidebarOpen ? styles.sidebarToggleOpen : ""}`}
+        onClick={() => setSidebarOpen(!sidebarOpen)}
+        aria-label="Toggle navigation menu"
+        aria-expanded={sidebarOpen}
+      >
+        <span />
+        <span />
+        <span />
+      </button>
+
+      {/* Overlay – closes sidebar when clicking outside */}
+      {sidebarOpen && (
+        <div
+          className={styles.sidebarOverlay}
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
+
+      {/* Custom Sidebar – slides in from the right on screens < desktop */}
+      <aside className={`${styles.mobileSidebar} ${sidebarOpen ? styles.mobileSidebarOpen : ""}`}>
+        <div className={styles.sidebarHeader}>
+          <div className={styles.sidebarBrand}>
+            <a href="/">KAEAOU</a>
+            <span>VISUAL ARTIST / ARCHIVE</span>
+          </div>
+
+          <button
+            className={styles.sidebarClose}
+            onClick={() => setSidebarOpen(false)}
+            aria-label="Close navigation menu"
+          >
+            ×
+          </button>
+        </div>
+
+        <nav className={styles.sidebarNav}>
+          <a href="/">HOME</a>
+          <a href="/moribloom">MORIBLOOM</a>
+          <a href="/artbook">ARTBOOK</a>
+          <a href="/brochure">BROCHURE</a>
+          <a href="/sketches">SKETCHES</a>
+        </nav>
+
+        <div className={styles.sidebarDetails}>
+          <span>ARCHIVE / 2026</span>
+          <span>KA / 01</span>
+        </div>
+      </aside>
 
       <section className={styles.about}>
         <div className={styles.aboutNumber}>04</div>
@@ -134,57 +189,60 @@ function About() {
       <footer className={styles.footer}>
         <div className={styles.footerMain}>
 
-          <div>
+          <div className={styles.footerBrandBlock}>
             <span className={styles.footerEyebrow}>
               VISUAL ARTIST / ARCHIVE
             </span>
-
             <div className={styles.footerBrand}>KAEAOU</div>
           </div>
+
+          {/* Social links – full names, all on one row, flush together */}
           <div className={styles.footerNavigation}>
             <span>SOCIAL / CONTACT</span>
 
-            <a
-              href="https://www.instagram.com/kaeaou?igsi=MWQ3bjNscDBoMnIwaw%3D%3D&utm_source=qr"
-              target="_blank"
-              rel="noreferrer"
-            >
-              IG — INSTAGRAM
-            </a>
+            <div className={styles.footerLinks}>
+              <a
+                href="https://www.instagram.com/kaeaou?igsi=MWQ3bjNscDBoMnIwaw%3D%3D&utm_source=qr"
+                target="_blank"
+                rel="noreferrer"
+              >
+                IG — INSTAGRAM
+              </a>
 
-            <a
-              href="https://www.tiktok.com/@kaeaouu?_r=1&_t=ZS-99QjPRQZm5q"
-              target="_blank"
-              rel="noreferrer"
-            >
-              TK — TIKTOK
-            </a>
+              <a
+                href="https://www.tiktok.com/@kaeaouu?_r=1&_t=ZS-99QjPRQZm5q"
+                target="_blank"
+                rel="noreferrer"
+              >
+                TK — TIKTOK
+              </a>
 
-            <a
-              href="https://x.com/kaeaouu"
-              target="_blank"
-              rel="noreferrer"
-            >
-              X — TWITTER
-            </a>
+              <a
+                href="https://x.com/kaeaouu"
+                target="_blank"
+                rel="noreferrer"
+              >
+                X — TWITTER
+              </a>
 
-            <a
-              href="https://vgen.co/kaeaou"
-              target="_blank"
-              rel="noreferrer"
-            >
-              VG — VGEN
-            </a>
+              <a
+                href="https://vgen.co/kaeaou"
+                target="_blank"
+                rel="noreferrer"
+              >
+                VG — VGEN
+              </a>
 
-            <a
-              href="https://www.artstation.com/kaeaou"
-              target="_blank"
-              rel="noreferrer"
-            >
-              AS — ARTSTATION
-            </a>
+              <a
+                href="https://www.artstation.com/kaeaou"
+                target="_blank"
+                rel="noreferrer"
+              >
+                AS — ARTSTATION
+              </a>
+            </div>
 
-            <span style={{ marginTop: "8px" }}>
+            <span className={styles.footerOpen}>
               OPEN / ONLINE
             </span>
           </div>

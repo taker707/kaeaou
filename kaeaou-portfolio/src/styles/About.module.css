@@ -65,6 +65,7 @@
   background-size: 7px 7px, 11px 11px;
 }
 
+/* ----- DESKTOP NAVBAR (hidden below 1025px) ----- */
 .navbar {
   position: relative;
   z-index: 5;
@@ -141,6 +142,236 @@
   gap: 25px;
 }
 
+/* ----- SIDEBAR TOGGLE BUTTON (shown below 1025px) ----- */
+.sidebarToggle {
+  display: none;
+
+  position: fixed;
+  top: 22px;
+  right: 22px;
+  z-index: 110;
+
+  width: 44px;
+  height: 44px;
+
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+
+  cursor: pointer;
+
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+
+  padding: 0;
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.sidebarToggle:hover {
+  background: rgba(141, 48, 45, 0.06);
+  border-color: var(--red);
+}
+
+.sidebarToggle span {
+  display: block;
+
+  width: 20px;
+  height: 1px;
+
+  background: var(--ink);
+
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease,
+    background 0.3s ease;
+}
+
+.sidebarToggle:hover span {
+  background: var(--red);
+}
+
+/* Turn hamburger into an X when open */
+.sidebarToggleOpen span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.sidebarToggleOpen span:nth-child(2) {
+  opacity: 0;
+}
+
+.sidebarToggleOpen span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Overlay behind sidebar */
+.sidebarOverlay {
+  display: none;
+
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+
+  background: rgba(41, 37, 31, 0.35);
+
+  animation: fadeIn 0.3s ease;
+}
+
+/* ----- MOBILE / TABLET SIDEBAR (slides in from the right) ----- */
+.mobileSidebar {
+  display: none;
+
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 105;
+
+  width: 280px;
+  height: 100vh;
+
+  background: var(--paper);
+  border-left: 1px solid var(--line);
+
+  font-family: monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+
+  padding: 30px 25px;
+
+  flex-direction: column;
+
+  overflow-y: auto;
+
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+  box-shadow: -8px 0 30px rgba(41, 37, 31, 0.08);
+}
+
+.mobileSidebarOpen {
+  transform: translateX(0);
+}
+
+.sidebarHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  padding-bottom: 25px;
+  border-bottom: 1px solid var(--line);
+}
+
+.sidebarBrand {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sidebarBrand a {
+  color: var(--ink);
+  text-decoration: none;
+
+  font-family: Georgia, serif;
+  font-size: 28px;
+  letter-spacing: 1px;
+
+  transition:
+    color 0.3s ease,
+    letter-spacing 0.3s ease;
+}
+
+.sidebarBrand a:hover {
+  color: var(--red);
+  letter-spacing: 3px;
+}
+
+.sidebarBrand span {
+  color: var(--muted);
+  font-size: 8px;
+}
+
+.sidebarClose {
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+
+  color: var(--ink);
+  font-size: 20px;
+  line-height: 1;
+
+  width: 32px;
+  height: 32px;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.sidebarClose:hover {
+  background: rgba(141, 48, 45, 0.06);
+  color: var(--red);
+  border-color: var(--red);
+}
+
+.sidebarNav {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+
+  margin-top: 30px;
+  flex: 1;
+}
+
+.sidebarNav a {
+  color: var(--ink);
+  text-decoration: none;
+
+  font-size: 12px;
+  letter-spacing: 2px;
+
+  padding: 6px 0;
+
+  border-bottom: 1px solid transparent;
+
+  transition:
+    color 0.3s ease,
+    letter-spacing 0.3s ease,
+    border-color 0.3s ease,
+    padding-left 0.3s ease;
+}
+
+.sidebarNav a:hover {
+  color: var(--red);
+  letter-spacing: 4px;
+  border-bottom-color: var(--line);
+  padding-left: 5px;
+}
+
+.sidebarDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  padding-top: 25px;
+  border-top: 1px solid var(--line);
+
+  color: var(--muted);
+  font-size: 8px;
+}
+
+/* ----- ABOUT SECTION ----- */
 .about {
   position: relative;
 
@@ -549,6 +780,7 @@
   animation: fadeIn 1.5s 1s ease both;
 }
 
+/* ----- FOOTER ----- */
 .footer {
   position: relative;
   z-index: 5;
@@ -571,6 +803,11 @@
   gap: 50px;
 }
 
+.footerBrandBlock {
+  display: flex;
+  flex-direction: column;
+}
+
 .footerEyebrow {
   font-size: 8px;
   letter-spacing: 2px;
@@ -585,48 +822,86 @@
   font-size: 35px;
 }
 
+/* Social links – full names, single row, flush together */
 .footerNavigation {
   display: flex;
-
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 
   font-size: 0.7rem;
+
+  grid-column: 2 / -1;
 }
 
-.footerNavigation span {
-  margin-bottom: 5px;
-
+.footerNavigation > span:first-child {
   color: var(--muted);
+  font-size: 8px;
+  letter-spacing: 2px;
 }
 
-.footerNavigation a {
-  color: var(--ink);
+.footerLinks {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 0;
 
+  width: 100%;
+}
+
+.footerLinks a {
+  flex: 1 1 auto;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 36px;
+
+  padding: 0 10px;
+
+  color: var(--ink);
   text-decoration: none;
 
+  font-size: 9px;
+  letter-spacing: 1px;
+  white-space: nowrap;
+
+  border: 1px solid var(--line);
+  border-right: none;
+
+  background: rgba(41, 37, 31, 0.02);
+
   transition:
+    background 0.3s ease,
     color 0.3s ease,
-    padding-left 0.3s ease;
+    border-color 0.3s ease;
 }
 
-.footerNavigation a:hover {
+.footerLinks a:first-child {
+  border-radius: 2px 0 0 2px;
+}
+
+.footerLinks a:last-child {
+  border-right: 1px solid var(--line);
+  border-radius: 0 2px 2px 0;
+}
+
+.footerLinks a:hover {
   color: var(--red);
-
-  padding-left: 5px;
+  background: rgba(141, 48, 45, 0.06);
+  border-color: var(--red);
 }
 
-.footerDetails {
-  display: flex;
+.footerLinks a:hover + a {
+  border-left-color: var(--red);
+}
 
-  flex-direction: column;
-  gap: 8px;
-
-  align-items: flex-end;
-
-  font-size: 8px;
-
+.footerOpen {
   color: var(--muted);
+  font-size: 8px;
+  letter-spacing: 2px;
+
+  margin-top: 4px;
 }
 
 .footerRule {
@@ -654,6 +929,7 @@
   color: var(--muted);
 }
 
+/* ----- KEYFRAMES ----- */
 @keyframes navReveal {
   from {
     opacity: 0;
@@ -882,58 +1158,165 @@
   }
 }
 
-@media (max-width: 800px) {
+/* ----- RESPONSIVE: TABLET & MOBILE (max-width: 1024px) ----- */
+@media (max-width: 1024px) {
+  /* Hide desktop navbar */
   .navbar {
-    grid-template-columns: 1fr auto;
-  }
-
-  .navLinks {
     display: none;
   }
 
-  .navDetails {
-    display: none;
+  /* Show toggle button and overlay */
+  .sidebarToggle {
+    display: flex;
+  }
+
+  .sidebarOverlay {
+    display: block;
+  }
+
+  /* Show mobile sidebar */
+  .mobileSidebar {
+    display: flex;
   }
 
   .about {
     min-height: 80vh;
+    margin: 0 5vw;
+  }
+
+  .aboutContent {
+    padding-left: 5%;
+  }
+
+  .aboutTop {
+    left: 5%;
+    right: 5%;
+  }
+
+  .coordinates {
+    left: 5%;
+  }
+
+  .archiveDetails {
+    left: 5%;
+  }
+
+  .verticalLabel {
+    display: none;
   }
 
   .aboutNumber {
     left: -20px;
+    font-size: 18rem;
+  }
 
+  .sideIndex {
+    right: 0;
+  }
+
+  .registrationOne {
+    top: 90px;
+    left: 5%;
+  }
+
+  .registrationTwo {
+    right: 5%;
+    bottom: 70px;
+  }
+
+  .decorativeText {
+    display: none;
+  }
+
+  .footerMain {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+
+  .footerNavigation {
+    grid-column: 1 / -1;
+  }
+
+  .footerBottom {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+/* ----- RESPONSIVE: MOBILE (max-width: 800px) ----- */
+@media (max-width: 800px) {
+  .mobileSidebar {
+    width: 260px;
+    padding: 25px 20px;
+  }
+
+  .sidebarBrand a {
+    font-size: 24px;
+  }
+
+  .sidebarNav a {
+    font-size: 11px;
+  }
+
+  .about {
+    min-height: 80vh;
+    margin: 0 5vw;
+  }
+
+  .aboutNumber {
+    left: -20px;
     font-size: 18rem;
   }
 
   .aboutTop {
-    left: 12%;
-
+    left: 8%;
     font-size: 7px;
   }
 
   .aboutContent {
     grid-template-columns: 1fr;
-
     gap: 50px;
+    padding: 100px 20px 100px 20px;
+  }
 
-    padding:
-      100px
-      30px
-      100px
-      30px;
+  /* Center the "About Me" heading on mobile */
+  .aboutHeading {
+    text-align: center;
   }
 
   .aboutHeading h1 {
     font-size: 6rem;
+    text-align: center;
   }
 
-  .headingLine,
+  .aboutHeading h1 em {
+    margin-left: 0;
+    display: block;
+    text-align: center;
+  }
+
+  .sectionIndex {
+    text-align: center;
+  }
+
+  .headingLine {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+  }
+
   .headingMeta {
     width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    gap: 20px;
   }
 
   .description {
     padding-left: 20px;
+    max-width: 100%;
   }
 
   .description p {
@@ -971,31 +1354,84 @@
     bottom: 70px;
   }
 
+  /* Footer adjustments – centered on mobile */
   .footerMain {
-    grid-template-columns: 1fr 1fr;
-
+    grid-template-columns: 1fr;
     gap: 30px;
+
+    text-align: center;
   }
 
-  .footerDetails {
-    align-items: flex-start;
+  .footerBrandBlock {
+    align-items: center;
+  }
+
+  .footerNavigation {
+    grid-column: 1;
+    align-items: center;
+  }
+
+  .footerLinks {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    justify-content: center;
+  }
+
+  .footerLinks a {
+    font-size: 8px;
+    padding: 0 8px;
+    height: 32px;
+  }
+
+  .footerOpen {
+    text-align: center;
   }
 
   .footerBottom {
     flex-direction: column;
-
     gap: 8px;
+
+    align-items: center;
+    text-align: center;
   }
 }
 
+/* ----- RESPONSIVE: SMALL MOBILE (max-width: 500px) ----- */
 @media (max-width: 500px) {
-  .navbar {
-    margin: 0 25px;
-    padding: 22px 0;
+  .sidebarToggle {
+    top: 18px;
+    right: 18px;
+
+    width: 40px;
+    height: 40px;
   }
 
-  .navBrand a {
-    font-size: 21px;
+  .mobileSidebar {
+    width: 240px;
+    padding: 20px 16px;
+  }
+
+  .sidebarBrand a {
+    font-size: 22px;
+  }
+
+  .sidebarBrand span {
+    font-size: 7px;
+  }
+
+  .sidebarNav {
+    gap: 14px;
+    margin-top: 20px;
+  }
+
+  .sidebarNav a {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+  }
+
+  .sidebarDetails {
+    font-size: 7px;
+    padding-top: 18px;
   }
 
   .about {
@@ -1012,40 +1448,50 @@
   }
 
   .aboutContent {
-    padding:
-      100px
-      10px
-      90px
-      20px;
+    padding: 100px 10px 90px 15px;
   }
 
+  /* Center About Me on small mobile */
   .aboutHeading h1 {
     font-size: 5rem;
-
     letter-spacing: -5px;
+    text-align: center;
   }
 
   .aboutHeading h1 em {
-    margin-left: 20%;
+    margin-left: 0;
+    display: block;
+    text-align: center;
   }
 
   .sectionIndex {
     margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .headingLine {
+    width: 95%;
+    justify-content: center;
+  }
+
+  .headingMeta {
+    width: 95%;
+    flex-direction: column;
+    gap: 7px;
+    align-items: center;
+    justify-content: center;
   }
 
   .description {
     max-width: 100%;
-
     padding-left: 15px;
+    border-left: none;
+    border-top: 1px solid var(--line);
+    padding-top: 25px;
   }
 
   .description .lead {
     font-size: 19px;
-  }
-
-  .headingMeta {
-    flex-direction: column;
-    gap: 7px;
   }
 
   .coordinates {
@@ -1053,19 +1499,51 @@
     gap: 15px;
   }
 
+  /* Footer – centered on small mobile */
   .footer {
     margin: 0 25px;
   }
 
   .footerMain {
     grid-template-columns: 1fr;
+
+    text-align: center;
   }
 
-  .footerDetails {
-    display: none;
+  .footerBrandBlock {
+    align-items: center;
   }
 
   .footerBrand {
     font-size: 30px;
+  }
+
+  .footerNavigation {
+    grid-column: 1;
+    align-items: center;
+  }
+
+  .footerLinks {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    justify-content: center;
+  }
+
+  .footerLinks a {
+    font-size: 7px;
+    padding: 0 6px;
+    height: 30px;
+  }
+
+  .footerOpen {
+    text-align: center;
+  }
+
+  .footerBottom {
+    flex-direction: column;
+    gap: 8px;
+
+    align-items: center;
+    text-align: center;
   }
 }
