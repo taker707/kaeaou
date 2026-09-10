@@ -820,7 +820,7 @@ function Hero() {
               <span>SOCIAL / CONTACT</span>
 
               <a
-                href="https://www.instagram.com/kaeaou?igsi=MWQ3bjNscDBoMnIwaw%3D%3D&utm_source=qr"
+                href="https://www.instagram.com/kaeaou"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -828,7 +828,7 @@ function Hero() {
               </a>
 
               <a
-                href="https://www.tiktok.com/@kaeaouu?_r=1&_t=ZS-99QjPRQZm5q"
+                href="https://www.tiktok.com/@kaeaouu"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -836,7 +836,7 @@ function Hero() {
               </a>
 
               <a
-                href="https://x.com/kaeaouu?s=11"
+                href="https://x.com/kaeaouu"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -950,7 +950,7 @@ function Hero() {
                 <span>CONNECT</span>
 
                 <a
-                  href="https://www.instagram.com/kaeaou?igsi=MWQ3bjNscDBoMnIwaw%3D%3D&utm_source=qr"
+                  href="https://www.instagram.com/kaeaou"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -958,7 +958,7 @@ function Hero() {
                 </a>
 
                 <a
-                  href="https://www.tiktok.com/@kaeaouu?_r=1&_t=ZS-99QjPRQZm5q"
+                  href="https://www.tiktok.com/@kaeaouu"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -966,7 +966,7 @@ function Hero() {
                 </a>
 
                 <a
-                  href="https://x.com/kaeaouu?s=11"
+                  href="https://x.com/kaeaouu"
                   target="_blank"
                   rel="noreferrer"
                 >

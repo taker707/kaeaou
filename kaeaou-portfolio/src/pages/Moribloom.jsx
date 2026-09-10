@@ -38,11 +38,11 @@ const navItems = [
 ];
 
 const socials = [
-  { handle: "@kaeaou", label: "INSTAGRAM", href: "#" },
-  { handle: "@kaeaouu", label: "TIKTOK", href: "#" },
-  { handle: "@kaeaouu", label: "X / TWITTER", href: "#" },
-  { handle: "@kaeaou", label: "VGEN", href: "#" },
-  { handle: "@kaeaou", label: "ARTSTATION", href: "#" },
+  { handle: "@kaeaou", label: "INSTAGRAM", href: "https://instagram.com/kaeaou" },
+  { handle: "@kaeaouu", label: "TIKTOK", href: "https://tiktok.com/@kaeaouu" },
+  { handle: "@kaeaouu", label: "X / TWITTER", href: "https://x.com/kaeaouu" },
+  { handle: "@kaeaou", label: "VGEN", href: "https://vgen.co/kaeaou" },
+  { handle: "@kaeaou", label: "ARTSTATION", href: "https://artstation.com/kaeaou" },
 ];
 
 export default function Moribloom() {
@@ -210,7 +210,7 @@ export default function Moribloom() {
           </span>
 
           <span className={styles.navMetaRight}>
-            BCD 001—012
+            MORIBLOOM 001—012
           </span>
         </div>
 
@@ -438,7 +438,7 @@ export default function Moribloom() {
               className={`${styles.storyItem} ${styles[piece.layout]}`}
             >
               <div className={styles.storyNumber}>
-                <span>BCD</span>
+                <span>ARCHIVE</span>
                 <strong>{piece.number}</strong>
               </div>
 
@@ -566,7 +566,7 @@ export default function Moribloom() {
             <span>© 2026 KAEAOU</span>
 
             <span>
-              MORIBLOOM / BCD 001—012
+              MORIBLOOM / MORIBLOOM 001—012
             </span>
 
             <span>
@@ -593,7 +593,7 @@ export default function Moribloom() {
             onClick={(event) => event.stopPropagation()}
           >
             <span>
-              BCD / {selectedImage.number}
+              MORIBLOOM / {selectedImage.number}
             </span>
 
             <span>

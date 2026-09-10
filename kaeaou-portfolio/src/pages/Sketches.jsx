@@ -25,7 +25,7 @@ import ske22 from "../assets/sketches/ske22.jpg";
 import ske23 from "../assets/sketches/ske23.png";
 import ske24 from "../assets/sketches/ske24.jpg";
 import ske25 from "../assets/sketches/ske25.jpg";
-import ske26 from "../assets/sketches/ske26.jpg";
+// import ske26 from "../assets/sketches/ske26.jpg";
 import ske27 from "../assets/sketches/ske27.jpg";
 import ske28 from "../assets/sketches/ske28.jpg";
 import ske29 from "../assets/sketches/ske29.jpg";
@@ -64,7 +64,6 @@ function Sketches() {
     ske23,
     ske24,
     ske25,
-    ske26,
     ske27,
     ske28,
     ske29,
@@ -115,42 +114,6 @@ function Sketches() {
 
   const closeLightbox = () => {
     setLightboxImage(null);
-  };
-
-  const showPrevious = (e) => {
-    e.stopPropagation();
-
-    setLightboxImage((current) => {
-      if (!current) return null;
-
-      const previousIndex =
-        current.index === 0
-          ? sketches.length - 1
-          : current.index - 1;
-
-      return {
-        image: sketches[previousIndex],
-        index: previousIndex,
-      };
-    });
-  };
-
-  const showNext = (e) => {
-    e.stopPropagation();
-
-    setLightboxImage((current) => {
-      if (!current) return null;
-
-      const nextIndex =
-        current.index === sketches.length - 1
-          ? 0
-          : current.index + 1;
-
-      return {
-        image: sketches[nextIndex],
-        index: nextIndex,
-      };
-    });
   };
 
   /*
@@ -403,7 +366,7 @@ function Sketches() {
           </h1>
 
           <div className={styles.heroInfo}>
-            <div className={styles.heroNumber}>31</div>
+            <div className={styles.heroNumber}>30</div>
 
             <div className={styles.heroDescription}>
               <span>FILES COLLECTED</span>
@@ -429,7 +392,7 @@ function Sketches() {
         </div>
 
         <div className={styles.introText}>
-          <span>001 — 031</span>
+          <span>001 — 030</span>
         </div>
 
         <div className={styles.introMeta}>
@@ -454,7 +417,7 @@ function Sketches() {
           </div>
 
           <div className={styles.archiveHeaderRight}>
-            <div className={styles.redBlock}>31</div>
+            <div className={styles.redBlock}>30</div>
 
             <div>
               <span>DOCUMENTS</span>
@@ -532,14 +495,14 @@ function Sketches() {
               <span>CONNECT</span>
 
               <a href="https://instagram.com/kaeaou" target="_blank">INSTAGRAM ↗</a>
-              <a href="https://tiktok.com/kaeaouu" target="_blank">TIKTOK ↗</a>
+              <a href="https://tiktok.com/@kaeaouu" target="_blank">TIKTOK ↗</a>
               <a href="https://x.com/kaeaouu" target="_blank">X ↗</a>
               <a href="https://vgen.co/kaeaou" target="_blank">VGEN ↗</a>
               <a href="https://artstation.com/kaeaou" target="_blank">ARTSTATION ↗</a>
             </div>
           </div>
 
-          <div className={styles.footerNumber}>031</div>
+          <div className={styles.footerNumber}>030</div>
         </div>
 
         <div className={styles.footerBottom}>
@@ -579,17 +542,25 @@ function Sketches() {
             NAVIGATE
           </span>
 
-          <a href="/">
+          <a href="https://www.instagram.com/kaeaou">
             <span>01</span>
             <strong>INSTAGRAM</strong>
           </a>
-          <a href="/">
+          <a href="https://tiktok.com/@kaeaouu">
             <span>02</span>
             <strong>TIKTOK</strong>
           </a>
-          <a href="/">
+          <a href="https://x.com/kaeaouu">
             <span>03</span>
             <strong>X</strong>
+          </a>
+          <a href="https://vgen.co/kaeaou">
+            <span>04</span>
+            <strong>VGEN</strong>
+          </a>
+          <a href="https://artstation.com/kaeaou">
+            <span>05</span>
+            <strong>ARTSTATION</strong>
           </a>
 
         </div>
@@ -641,14 +612,6 @@ function Sketches() {
             </button>
           </div>
 
-          <button
-            className={`${styles.lightboxNav} ${styles.lightboxPrev}`}
-            onClick={showPrevious}
-            aria-label="Previous sketch"
-          >
-            ←
-          </button>
-
           <div
             className={styles.lightboxContent}
             onClick={(e) => e.stopPropagation()}
@@ -660,20 +623,12 @@ function Sketches() {
             />
           </div>
 
-          <button
-            className={`${styles.lightboxNav} ${styles.lightboxNext}`}
-            onClick={showNext}
-            aria-label="Next sketch"
-          >
-            →
-          </button>
-
           <div className={styles.lightboxBottom}>
             <span>
-              {String(lightboxImage.index + 1).padStart(3, "0")} / 031
+              {String(lightboxImage.index + 1).padStart(3, "0")} / 030
             </span>
 
-            <span>← → NAVIGATE · ESC CLOSE</span>
+            <span>ESC CLOSE</span>
           </div>
         </div>
       )}

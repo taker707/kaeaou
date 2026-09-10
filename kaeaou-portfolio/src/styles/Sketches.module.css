@@ -805,41 +805,6 @@
   object-fit: contain;
 }
 
-.lightboxNav {
-  position: absolute;
-  z-index: 4;
-  top: 50%;
-  width: 60px;
-  height: 60px;
-  border: 1px solid var(--paper);
-  background: transparent;
-  color: var(--paper);
-  font-size: 25px;
-  cursor: pointer;
-  transform: translateY(-50%);
-
-  transition:
-    background 0.2s ease,
-    color 0.2s ease;
-
-  animation: lightboxNavIn 0.45s 0.18s cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
-.lightboxNav:hover {
-  background: var(--paper);
-  color: var(--ink);
-}
-
-.lightboxPrev {
-  left: 40px;
-  animation-name: lightboxPrevIn;
-}
-
-.lightboxNext {
-  right: 40px;
-  animation-name: lightboxNextIn;
-}
-
 .closeButton {
   animation: closeButtonIn 0.4s 0.2s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
@@ -1459,20 +1424,6 @@
 
   .lightboxImage {
     max-height: 70vh;
-  }
-
-  .lightboxNav {
-    width: 44px;
-    height: 44px;
-    font-size: 18px;
-  }
-
-  .lightboxPrev {
-    left: 10px;
-  }
-
-  .lightboxNext {
-    right: 10px;
   }
 
   .lightboxBottom {
@@ -2229,38 +2180,6 @@
   }
 }
 
-@keyframes lightboxPrevIn {
-  from {
-    opacity: 0;
-    transform:
-      translateY(-50%)
-      translateX(-25px);
-  }
-
-  to {
-    opacity: 1;
-    transform:
-      translateY(-50%)
-      translateX(0);
-  }
-}
-
-@keyframes lightboxNextIn {
-  from {
-    opacity: 0;
-    transform:
-      translateY(-50%)
-      translateX(25px);
-  }
-
-  to {
-    opacity: 1;
-    transform:
-      translateY(-50%)
-      translateX(0);
-  }
-}
-
 @keyframes closeButtonIn {
   from {
     opacity: 0;
@@ -2421,6 +2340,6 @@
   }
 }
 
-.card:nth-child(30) .imageWrap img {
-  object-position: 15% center;
+.card:nth-child(29) .imageWrap img {
+  object-position: 10% center;
 }

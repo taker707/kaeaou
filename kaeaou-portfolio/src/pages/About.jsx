@@ -202,7 +202,7 @@ function About() {
 
             <div className={styles.footerLinks}>
               <a
-                href="https://www.instagram.com/kaeaou?igsi=MWQ3bjNscDBoMnIwaw%3D%3D&utm_source=qr"
+                href="https://www.instagram.com/kaeaou"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -210,7 +210,7 @@ function About() {
               </a>
 
               <a
-                href="https://www.tiktok.com/@kaeaouu?_r=1&_t=ZS-99QjPRQZm5q"
+                href="https://www.tiktok.com/@kaeaouu"
                 target="_blank"
                 rel="noreferrer"
               >
