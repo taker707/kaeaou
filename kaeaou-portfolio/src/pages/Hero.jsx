@@ -757,7 +757,7 @@ function Hero() {
             data-reveal
           >
             <span>SELECTED ENTRIES</span>
-            <span>2021 — 2026</span>
+            <span>2023 — 2026</span>
           </div>
 
           <div className={styles.illustrationGrid}>

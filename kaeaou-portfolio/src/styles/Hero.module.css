@@ -3534,3 +3534,11 @@
 .gridCell:nth-child(23) .illustrationImage {
   object-position: 65% center;
 }
+
+.gridCell:nth-child(8) .illustrationImage {
+  object-position: 10% center;
+}
+
+.gridCell:nth-child(9) .illustrationImage {
+  object-position: 65% center;
+}
