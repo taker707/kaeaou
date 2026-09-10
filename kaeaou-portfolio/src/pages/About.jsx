@@ -55,14 +55,6 @@ function About() {
             <a href="/">KAEAOU</a>
             <span>VISUAL ARTIST / ARCHIVE</span>
           </div>
-
-          <button
-            className={styles.sidebarClose}
-            onClick={() => setSidebarOpen(false)}
-            aria-label="Close navigation menu"
-          >
-            ×
-          </button>
         </div>
 
         <nav className={styles.sidebarNav}>
@@ -202,7 +194,7 @@ function About() {
 
             <div className={styles.footerLinks}>
               <a
-                href="https://www.instagram.com/kaeaou"
+                href="https://www.instagram.com/kaeaou?igsi=MWQ3bjNscDBoMnIwaw%3D%3D&utm_source=qr"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -210,7 +202,7 @@ function About() {
               </a>
 
               <a
-                href="https://www.tiktok.com/@kaeaouu"
+                href="https://www.tiktok.com/@kaeaouu?_r=1&_t=ZS-99QjPRQZm5q"
                 target="_blank"
                 rel="noreferrer"
               >

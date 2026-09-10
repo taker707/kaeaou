@@ -1547,3 +1547,189 @@
     text-align: center;
   }
 }
+
+/* ----- RESPONSIVE: EXTRA SMALL MOBILE (max-width: 380px) ----- */
+@media (max-width: 380px) {
+  .sidebarToggle {
+    top: 16px;
+    right: 16px;
+
+    width: 38px;
+    height: 38px;
+  }
+
+  .mobileSidebar {
+    width: 220px;
+    padding: 18px 14px;
+  }
+
+  .sidebarBrand a {
+    font-size: 20px;
+  }
+
+  .sidebarBrand span {
+    font-size: 6px;
+    letter-spacing: 1px;
+  }
+
+  .sidebarNav {
+    gap: 12px;
+    margin-top: 18px;
+  }
+
+  .sidebarNav a {
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
+
+  .sidebarDetails {
+    font-size: 6px;
+    padding-top: 16px;
+  }
+
+  .about {
+    margin: 0 18px;
+  }
+
+  .aboutTop {
+    left: 4%;
+    right: 4%;
+
+    font-size: 6px;
+  }
+
+  .aboutContent {
+    padding: 90px 6px 80px 10px;
+  }
+
+  .aboutHeading h1 {
+    font-size: 4rem;
+    letter-spacing: -4px;
+    text-align: center;
+  }
+
+  .aboutHeading h1 em {
+    margin-left: 0;
+    display: block;
+    text-align: center;
+  }
+
+  .sectionIndex {
+    font-size: 8px;
+    letter-spacing: 2px;
+    text-align: center;
+  }
+
+  .headingLine {
+    width: 100%;
+    margin-top: 35px;
+    justify-content: center;
+  }
+
+  .headingMeta {
+    width: 100%;
+    flex-direction: column;
+    gap: 6px;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 6px;
+  }
+
+  .description {
+    max-width: 100%;
+    padding-left: 12px;
+    border-left: none;
+    border-top: 1px solid var(--line);
+    padding-top: 22px;
+  }
+
+  .descriptionLabel {
+    font-size: 8px;
+    letter-spacing: 2px;
+  }
+
+  .description p {
+    font-size: 14px;
+  }
+
+  .description .lead {
+    font-size: 17px;
+  }
+
+  .descriptionMark {
+    font-size: 6px;
+  }
+
+  .coordinates {
+    left: 10px;
+    gap: 10px;
+
+    font-size: 6px;
+  }
+
+  /* Footer – centered on extra small mobile */
+  .footer {
+    margin: 0 18px;
+  }
+
+  .footerMain {
+    grid-template-columns: 1fr;
+    gap: 22px;
+
+    text-align: center;
+  }
+
+  .footerBrandBlock {
+    align-items: center;
+  }
+
+  .footerBrand {
+    font-size: 26px;
+  }
+
+  .footerEyebrow {
+    font-size: 7px;
+    letter-spacing: 1.5px;
+  }
+
+  .footerNavigation {
+    grid-column: 1;
+    align-items: center;
+  }
+
+  .footerNavigation > span:first-child {
+    font-size: 7px;
+    letter-spacing: 1.5px;
+  }
+
+  .footerLinks {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    justify-content: center;
+  }
+
+  .footerLinks a {
+    font-size: 6px;
+    padding: 0 5px;
+    height: 28px;
+    letter-spacing: 0.5px;
+  }
+
+  .footerOpen {
+    text-align: center;
+
+    font-size: 7px;
+    letter-spacing: 1.5px;
+  }
+
+  .footerBottom {
+    flex-direction: column;
+    gap: 6px;
+
+    align-items: center;
+    text-align: center;
+
+    font-size: 6px;
+  }
+}
