@@ -277,45 +277,47 @@ export default function Brochure() {
 
       {/* Navbar (desktop only) */}
       <nav className={styles.navbar}>
-        <a href="/" className={styles.navLogo} aria-label="Kaeaou home">
-          <span className={styles.navLogoDiamond}>✦</span>
+        <div className={styles.navbarInner}>
+          <a href="/" className={styles.navLogo} aria-label="Kaeaou home">
+            <span className={styles.navLogoDiamond}>✦</span>
 
-          <span className={styles.navLogoText}>
-            <small>KAEAOU</small>
-            <strong>PERSONAL ARCHIVE</strong>
-          </span>
-        </a>
-
-        <div className={styles.navLinks}>
-          <a href="/" className={styles.navLink}>
-            <span>01</span>
-            HOME
+            <span className={styles.navLogoText}>
+              <small>KAEAOU</small>
+              <strong>PERSONAL ARCHIVE</strong>
+            </span>
           </a>
 
-          <a href="/moribloom" className={styles.navLink}>
-            <span>02</span>
-            MORIBLOOM
-          </a>
+          <div className={styles.navLinks}>
+            <a href="/" className={styles.navLink}>
+              <span>01</span>
+              HOME
+            </a>
 
-          <a href="/artbook" className={styles.navLink}>
-            <span>03</span>
-            ARTBOOK
-          </a>
+            <a href="/moribloom" className={styles.navLink}>
+              <span>02</span>
+              MORIBLOOM
+            </a>
 
-          <a href="/sketches" className={styles.navLink}>
-            <span>04</span>
-            SKETCHES
-          </a>
+            <a href="/artbook" className={styles.navLink}>
+              <span>03</span>
+              ARTBOOK
+            </a>
 
-          <a href="/about" className={styles.navLink}>
-            <span>05</span>
-            ABOUT
-          </a>
-        </div>
+            <a href="/sketches" className={styles.navLink}>
+              <span>04</span>
+              SKETCHES
+            </a>
 
-        <div className={styles.navStatus}>
-          <span className={styles.statusDot} />
-          <span>KAEAOU / RECORD ACTIVE</span>
+            <a href="/about" className={styles.navLink}>
+              <span>05</span>
+              ABOUT
+            </a>
+          </div>
+
+          <div className={styles.navStatus}>
+            <span className={styles.statusDot} />
+            <span>KAEAOU / RECORD ACTIVE</span>
+          </div>
         </div>
       </nav>
 
@@ -459,10 +461,6 @@ export default function Brochure() {
                 <div className={styles.photoCorner} aria-hidden="true" />
 
                 <div className={styles.photoScan} aria-hidden="true" />
-
-                <div className={styles.photoZoom} aria-hidden="true">
-                  <span>VIEW</span>
-                </div>
               </div>
 
               <div className={styles.caption}>
@@ -541,11 +539,6 @@ export default function Brochure() {
                 <div className={styles.photoCorner} aria-hidden="true" />
 
                 <div className={styles.photoScan} aria-hidden="true" />
-
-                <div className={styles.photoZoom} aria-hidden="true">
-                  <span>VIEW</span>
-                  <span>↗</span>
-                </div>
               </div>
 
               <div className={styles.caption}>
@@ -624,11 +617,6 @@ export default function Brochure() {
                 <div className={styles.photoCorner} aria-hidden="true" />
 
                 <div className={styles.photoScan} aria-hidden="true" />
-
-                <div className={styles.photoZoom} aria-hidden="true">
-                  <span>VIEW</span>
-                  <span>↗</span>
-                </div>
               </div>
 
               <div className={styles.caption}>
@@ -707,11 +695,6 @@ export default function Brochure() {
                 <div className={styles.photoCorner} aria-hidden="true" />
 
                 <div className={styles.photoScan} aria-hidden="true" />
-
-                <div className={styles.photoZoom} aria-hidden="true">
-                  <span>VIEW</span>
-                  <span>↗</span>
-                </div>
               </div>
 
               <div className={styles.caption}>
