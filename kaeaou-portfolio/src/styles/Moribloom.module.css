@@ -1063,6 +1063,115 @@
 }
 
 /* =========================================
+   PROJECT DESCRIPTOR
+========================================= */
+
+.descriptor {
+  position: relative;
+
+  padding: 14vh 8vw;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--grey-dark);
+  color: var(--cream);
+
+  border-bottom: 1px solid var(--line);
+
+  overflow: hidden;
+}
+
+.descriptorInner {
+  max-width: 880px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+
+  opacity: 0;
+  transform: translateY(40px);
+
+  animation:
+    descriptorReveal 1.1s cubic-bezier(0.22, 1, 0.36, 1)
+    0.2s forwards;
+}
+
+@keyframes descriptorReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.descriptorLabel {
+  margin-bottom: 38px;
+
+  font-size: 8px;
+  letter-spacing: 0.4em;
+
+  color: var(--sage-light);
+
+  opacity: 0.7;
+}
+
+.descriptorText {
+  margin: 0;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: clamp(26px, 4.2vw, 52px);
+  font-weight: 400;
+
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+
+  color: var(--cream);
+}
+
+.descriptorText::first-letter {
+  color: var(--sage-light);
+}
+
+.descriptorRule {
+  width: min(320px, 55vw);
+  height: 1px;
+
+  margin-top: 48px;
+
+  background: rgba(246, 240, 215, 0.15);
+
+  overflow: hidden;
+}
+
+.descriptorRule span {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  background: var(--sage-light);
+
+  transform: scaleX(0);
+  transform-origin: center;
+
+  animation:
+    descriptorRuleReveal 1.2s cubic-bezier(0.77, 0, 0.18, 1)
+    0.7s forwards;
+}
+
+@keyframes descriptorRuleReveal {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* =========================================
    STORY
 ========================================= */
 
@@ -1795,7 +1904,9 @@
   .storyItem .storyCaption,
   .storyConnector,
   .artImage::before,
-  .navStatusDot {
+  .navStatusDot,
+  .descriptorInner,
+  .descriptorRule span {
     animation: none;
     transition: none;
     transform: none;
@@ -1805,8 +1916,13 @@
   .storyItem .artImage,
   .storyItem .storyNumber,
   .storyItem .verticalLabel,
-  .storyItem .storyCaption {
+  .storyItem .storyCaption,
+  .descriptorInner {
     opacity: 1;
+  }
+
+  .descriptorRule span {
+    transform: scaleX(1);
   }
 }
 
@@ -1837,6 +1953,22 @@
 
   .heroTitle {
     font-size: clamp(75px, 17vw, 160px);
+  }
+
+  .descriptor {
+    padding: 10vh 7vw;
+  }
+
+  .descriptorLabel {
+    margin-bottom: 32px;
+  }
+
+  .descriptorText {
+    font-size: clamp(24px, 5.5vw, 40px);
+  }
+
+  .descriptorRule {
+    margin-top: 38px;
   }
 
   .storyItem {
@@ -1942,6 +2074,27 @@
 
   .heroInfo {
     gap: 12px;
+  }
+
+  .descriptor {
+    padding: 8vh 24px;
+  }
+
+  .descriptorLabel {
+    margin-bottom: 26px;
+
+    font-size: 7px;
+    letter-spacing: 0.35em;
+  }
+
+  .descriptorText {
+    font-size: clamp(22px, 7vw, 30px);
+    line-height: 1.4;
+  }
+
+  .descriptorRule {
+    width: min(220px, 70vw);
+    margin-top: 32px;
   }
 
   .storyItem {

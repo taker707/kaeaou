@@ -270,19 +270,17 @@ function Artbook() {
         ================================================= */}
 
         <div
-          className={`${styles.sidebarOverlay} ${
-            menuOpen
+          className={`${styles.sidebarOverlay} ${menuOpen
               ? styles.sidebarOverlayOpen
               : ""
-          }`}
+            }`}
           onClick={() => setMenuOpen(false)}
           aria-hidden="true"
         />
 
         <aside
-          className={`${styles.sidebar} ${
-            menuOpen ? styles.sidebarOpen : ""
-          }`}
+          className={`${styles.sidebar} ${menuOpen ? styles.sidebarOpen : ""
+            }`}
         >
           <div className={styles.sidebarHeader}>
             <span className={styles.sidebarBrand}>
@@ -382,6 +380,36 @@ function Artbook() {
         </section>
 
         {/* =================================================
+            PROJECT DESCRIPTOR
+        ================================================= */}
+
+        <section className={styles.descriptor}>
+          <div className={styles.descriptorNumber}>
+            02
+          </div>
+
+          <div className={styles.descriptorInner}>
+            <p className={styles.descriptorLabel}>
+              PROJECT DESCRIPTOR
+            </p>
+
+            <p className={styles.descriptorText}>
+              A project focused on creating a personal artbook that brings together my illustrations, character designs, and creative work.
+            </p>
+
+            <div className={styles.descriptorRule} />
+          </div>
+
+          <div className={styles.descriptorStamp}>
+            <span>PROJECT NOTE</span>
+
+            <strong>K</strong>
+
+            <span>KA / 01</span>
+          </div>
+        </section>
+
+        {/* =================================================
             ARTWORK / ENTRIES
         ================================================= */}
 
@@ -391,11 +419,10 @@ function Artbook() {
         >
           {artwork.map((image, index) => (
             <article
-              className={`${styles.entry} ${
-                visibleEntries.has(index)
+              className={`${styles.entry} ${visibleEntries.has(index)
                   ? styles.entryVisible
                   : ""
-              }`}
+                }`}
               data-index={index}
               key={image}
               onClick={() =>
@@ -427,9 +454,8 @@ function Artbook() {
                 <div className={styles.imageReveal}>
                   <img
                     src={image}
-                    alt={`Kaeaou artwork ${
-                      index + 1
-                    }`}
+                    alt={`Kaeaou artwork ${index + 1
+                      }`}
                     loading="lazy"
                   />
                 </div>
@@ -603,9 +629,8 @@ function Artbook() {
             <img
               className={styles.lightboxImage}
               src={artwork[activeImage]}
-              alt={`Kaeaou artwork ${
-                activeImage + 1
-              }`}
+              alt={`Kaeaou artwork ${activeImage + 1
+                }`}
               onClick={(event) =>
                 event.stopPropagation()
               }
@@ -621,11 +646,10 @@ function Artbook() {
 
       {loading && (
         <main
-          className={`${styles.loader} ${
-            loaderExiting
+          className={`${styles.loader} ${loaderExiting
               ? styles.loaderExiting
               : ""
-          }`}
+            }`}
         >
           <div className={styles.loaderPaper}>
             <div className={styles.loaderTop}>

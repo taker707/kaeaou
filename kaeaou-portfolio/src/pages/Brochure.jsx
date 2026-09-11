@@ -30,9 +30,8 @@ function MobileSidebar() {
     <>
       <button
         type="button"
-        className={`${styles.sidebarToggle} ${
-          open ? styles.sidebarToggleOpen : ""
-        }`}
+        className={`${styles.sidebarToggle} ${open ? styles.sidebarToggleOpen : ""
+          }`}
         onClick={() => setOpen((o) => !o)}
         aria-label={open ? "Close menu" : "Open menu"}
         aria-expanded={open}
@@ -43,9 +42,8 @@ function MobileSidebar() {
       </button>
 
       <div
-        className={`${styles.sidebarBackdrop} ${
-          open ? styles.sidebarBackdropOpen : ""
-        }`}
+        className={`${styles.sidebarBackdrop} ${open ? styles.sidebarBackdropOpen : ""
+          }`}
         onClick={() => setOpen(false)}
         aria-hidden="true"
       />
@@ -119,7 +117,7 @@ function MobileSidebar() {
 function Lightbox({ record, onClose }) {
   useEffect(() => {
     if (!record) return;
-    
+
     const onKey = (e) => {
       if (e.key === "Escape") onClose();
     };
@@ -389,6 +387,55 @@ export default function Brochure() {
             </div>
 
             <span>01—02</span>
+          </div>
+        </section>
+
+        {/* Project Descriptor */}
+        <section
+          className={`${styles.descriptor} ${styles.reveal}`}
+          aria-label="Project descriptor"
+        >
+          <div className={styles.descriptorInner}>
+            <div className={styles.descriptorTop}>
+              <span>FILE NO. 1999—K</span>
+
+              <span className={styles.descriptorTopCenter}>
+                PROJECT DESCRIPTOR
+              </span>
+
+              <span>FOLIO 00</span>
+            </div>
+
+            <div className={styles.descriptorMain}>
+              <div className={styles.descriptorSide} aria-hidden="true">
+                <span className={styles.descriptorSideDiamond}>✦</span>
+                <span className={styles.descriptorSideLabel}>
+                  ABSTRACT
+                </span>
+              </div>
+
+              <div className={styles.descriptorCopy}>
+                <p className={styles.descriptorEyebrow}>
+                  FROM THE PERSONAL ARCHIVE
+                </p>
+
+                <p className={styles.descriptorText}>
+                  A project to design a promotional brochure based on Reverse: 1999.
+                </p>
+
+                <div className={styles.descriptorRule}>
+                  <span />
+                  <span>KA / 1999</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Decorative descriptor stamp */}
+          <div className={styles.descriptorStamp} aria-hidden="true">
+            <span>ABSTRACT</span>
+            <strong>00</strong>
+            <span>FILE NO. 1999—K</span>
           </div>
         </section>
 

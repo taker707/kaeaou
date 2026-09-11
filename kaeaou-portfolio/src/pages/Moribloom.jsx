@@ -427,6 +427,27 @@ export default function Moribloom() {
         </section>
 
         {/* =========================
+            PROJECT DESCRIPTOR
+        ========================== */}
+
+        <section className={styles.descriptor}>
+          <div className={styles.descriptorInner}>
+            <span className={styles.descriptorLabel}>
+              PROJECT DESCRIPTOR
+            </span>
+
+            <p className={styles.descriptorText}>
+              Beneath the blooming lilies, a young tamer unknowingly takes
+              home a newborn deity of the forest.
+            </p>
+
+            <div className={styles.descriptorRule}>
+              <span />
+            </div>
+          </div>
+        </section>
+
+        {/* =========================
             ARTWORK STORY
         ========================== */}
 

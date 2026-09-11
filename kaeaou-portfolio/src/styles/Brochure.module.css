@@ -41,18 +41,14 @@
   overflow: hidden;
 
   background:
-    radial-gradient(
-      circle at 50% 15%,
+    radial-gradient(circle at 50% 15%,
       rgba(255, 255, 255, 0.35),
-      transparent 34%
-    ),
-    linear-gradient(
-      90deg,
+      transparent 34%),
+    linear-gradient(90deg,
       rgba(0, 0, 0, 0.035),
       transparent 12%,
       transparent 88%,
-      rgba(0, 0, 0, 0.035)
-    ),
+      rgba(0, 0, 0, 0.035)),
     var(--paper);
 }
 
@@ -76,8 +72,7 @@
   pointer-events: none;
 
   animation:
-    loaderExit 1.2s cubic-bezier(0.77, 0, 0.18, 1)
-    0.45s forwards;
+    loaderExit 1.2s cubic-bezier(0.77, 0, 0.18, 1) 0.45s forwards;
 }
 
 .loaderCircle {
@@ -137,8 +132,7 @@
   transform-origin: left;
 
   animation:
-    loaderLine 1s cubic-bezier(0.77, 0, 0.18, 1)
-    forwards;
+    loaderLine 1s cubic-bezier(0.77, 0, 0.18, 1) forwards;
 }
 
 .loaderYear {
@@ -326,6 +320,7 @@
 }
 
 @keyframes floatStar {
+
   0%,
   100% {
     transform: translateY(0) rotate(0deg);
@@ -534,8 +529,7 @@
   box-shadow: 0 1px 0 rgba(41, 39, 32, 0.04);
 
   animation:
-    navEnter 1s cubic-bezier(0.22, 1, 0.36, 1)
-    1s both;
+    navEnter 1s cubic-bezier(0.22, 1, 0.36, 1) 1s both;
 }
 
 @keyframes navEnter {
@@ -796,8 +790,7 @@
 
 .introCopy {
   animation:
-    titleEnter 1.2s cubic-bezier(0.22, 1, 0.36, 1)
-    1.05s both;
+    titleEnter 1.2s cubic-bezier(0.22, 1, 0.36, 1) 1.05s both;
 }
 
 @keyframes titleEnter {
@@ -888,8 +881,7 @@
   border-radius: 50%;
 
   animation:
-    clockAppear 1.5s cubic-bezier(0.22, 1, 0.36, 1)
-    1.2s both;
+    clockAppear 1.5s cubic-bezier(0.22, 1, 0.36, 1) 1.2s both;
 }
 
 @keyframes clockAppear {
@@ -1103,6 +1095,265 @@
 }
 
 /* =========================================================
+   PROJECT DESCRIPTOR
+   Matches the Personal Archive / 1999 paper aesthetic
+========================================================= */
+
+.descriptor {
+  position: relative;
+
+  padding: 90px 0 110px;
+}
+
+.descriptorInner {
+  position: relative;
+
+  width: min(1100px, 100%);
+  margin: 0 auto;
+
+  padding: 60px 70px;
+
+  background:
+    linear-gradient(135deg,
+      rgba(255, 255, 255, 0.18),
+      transparent 25%),
+    #f0e8d7;
+
+  border: 1px solid rgba(41, 39, 32, 0.18);
+
+  box-shadow:
+    0 20px 35px rgba(49, 39, 25, 0.1),
+    0 3px 8px rgba(49, 39, 25, 0.07);
+}
+
+/* Tape at top of the folio */
+.descriptorInner::before {
+  content: "";
+
+  position: absolute;
+
+  top: -15px;
+  left: 50%;
+
+  width: 130px;
+  height: 28px;
+
+  transform: translateX(-50%) rotate(-2deg);
+
+  background:
+    repeating-linear-gradient(90deg,
+      rgba(229, 219, 191, 0.9) 0,
+      rgba(229, 219, 191, 0.9) 7px,
+      rgba(212, 198, 167, 0.9) 8px,
+      rgba(229, 219, 191, 0.9) 15px);
+
+  opacity: 0.85;
+
+  box-shadow:
+    0 2px 5px rgba(40, 30, 15, 0.1);
+}
+
+/* Corner diamond motif */
+.descriptorInner::after {
+  content: "✦";
+
+  position: absolute;
+
+  right: 22px;
+  bottom: 18px;
+
+  font-size: 14px;
+
+  color: var(--red);
+
+  opacity: 0.7;
+}
+
+.descriptorTop {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  padding-bottom: 22px;
+  margin-bottom: 32px;
+
+  border-bottom: 1px solid var(--line-light);
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 7px;
+  letter-spacing: 0.22em;
+
+  color: var(--ink-faint);
+}
+
+.descriptorTopCenter {
+  text-align: center;
+
+  color: var(--red);
+  font-weight: 600;
+}
+
+.descriptorTop span:last-child {
+  text-align: right;
+}
+
+.descriptorMain {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  align-items: start;
+
+  gap: 40px;
+}
+
+/* Left vertical "ABSTRACT" rail */
+.descriptorSide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 14px;
+
+  padding-top: 6px;
+}
+
+.descriptorSideDiamond {
+  font-size: 12px;
+  color: var(--red);
+
+  animation:
+    floatStar 5s ease-in-out infinite;
+}
+
+.descriptorSideLabel {
+  writing-mode: vertical-rl;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 7px;
+  letter-spacing: 0.3em;
+
+  color: var(--ink-faint);
+}
+
+.descriptorCopy {
+  min-width: 0;
+}
+
+.descriptorEyebrow {
+  margin: 0 0 22px;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 8px;
+  font-weight: 600;
+
+  letter-spacing: 0.28em;
+
+  color: var(--red);
+}
+
+.descriptorText {
+  margin: 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: clamp(22px, 2.8vw, 40px);
+  line-height: 1.28;
+
+  letter-spacing: -0.015em;
+
+  color: var(--ink);
+}
+
+.descriptorText::first-letter {
+  color: var(--red);
+  font-style: italic;
+}
+
+.descriptorRule {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  margin-top: 34px;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 7px;
+  letter-spacing: 0.22em;
+
+  color: var(--ink-soft);
+}
+
+.descriptorRule span:first-child {
+  width: 80px;
+  height: 1px;
+  background: var(--ink);
+}
+
+.descriptorRule span:last-child {
+  color: var(--red);
+}
+
+/* Decorative circular stamp */
+.descriptorStamp {
+  position: absolute;
+
+  right: 2%;
+  top: 50%;
+
+  transform: translateY(-50%) rotate(10deg);
+
+  width: 130px;
+  height: 130px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--red);
+  border-radius: 50%;
+
+  color: var(--red);
+
+  opacity: 0.7;
+
+  pointer-events: none;
+}
+
+.descriptorStamp::before {
+  content: "";
+
+  position: absolute;
+  inset: 8px;
+
+  border: 1px dashed var(--red);
+  border-radius: 50%;
+}
+
+.descriptorStamp span {
+  position: relative;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 6px;
+
+  letter-spacing: 0.22em;
+
+  text-align: center;
+
+  padding: 0 6px;
+}
+
+.descriptorStamp strong {
+  position: relative;
+
+  margin: 5px 0;
+
+  font-family: Georgia, serif;
+  font-size: 30px;
+  font-weight: 400;
+
+  line-height: 1;
+}
+
+/* =========================================================
    1999 STAMP
 ========================================================= */
 
@@ -1131,8 +1382,7 @@
   opacity: 0.72;
 
   animation:
-    stampEnter 1s cubic-bezier(0.22, 1, 0.36, 1)
-    1.5s both;
+    stampEnter 1s cubic-bezier(0.22, 1, 0.36, 1) 1.5s both;
 }
 
 .archiveStamp::before {
@@ -1196,7 +1446,7 @@
   margin-bottom: 65px;
 }
 
-.galleryHeader > div:first-child {
+.galleryHeader>div:first-child {
   display: flex;
   flex-direction: column;
   gap: 5px;
@@ -1268,11 +1518,9 @@
   padding: 18px 18px 22px;
 
   background:
-    linear-gradient(
-      135deg,
+    linear-gradient(135deg,
       rgba(255, 255, 255, 0.18),
-      transparent 25%
-    ),
+      transparent 25%),
     #f0e8d7;
 
   border: 1px solid rgba(41, 39, 32, 0.18);
@@ -1355,13 +1603,11 @@
   transform: translateX(-50%) rotate(-2deg);
 
   background:
-    repeating-linear-gradient(
-      90deg,
+    repeating-linear-gradient(90deg,
       rgba(229, 219, 191, 0.9) 0,
       rgba(229, 219, 191, 0.9) 7px,
       rgba(212, 198, 167, 0.9) 8px,
-      rgba(229, 219, 191, 0.9) 15px
-    );
+      rgba(229, 219, 191, 0.9) 15px);
 
   opacity: 0.8;
 
@@ -1404,8 +1650,7 @@
   transform: scale(1.025);
 
   filter:
-    contrast(1.02)
-    saturate(0.95);
+    contrast(1.02) saturate(0.95);
 }
 
 .photoOverlay {
@@ -1415,13 +1660,11 @@
   pointer-events: none;
 
   background:
-    linear-gradient(
-      110deg,
+    linear-gradient(110deg,
       rgba(255, 255, 255, 0.15),
       transparent 30%,
       transparent 70%,
-      rgba(0, 0, 0, 0.06)
-    );
+      rgba(0, 0, 0, 0.06));
 
   mix-blend-mode: soft-light;
 }
@@ -1546,7 +1789,7 @@
   margin: 90px auto;
 }
 
-.timeDivider > span {
+.timeDivider>span {
   flex: 1;
 
   height: 1px;
@@ -1760,8 +2003,8 @@
   color: var(--red);
 }
 
-.bottomOrnament > span:nth-child(2),
-.bottomOrnament > span:nth-child(4) {
+.bottomOrnament>span:nth-child(2),
+.bottomOrnament>span:nth-child(4) {
   display: block;
 
   width: 80px;
@@ -1782,10 +2025,8 @@
   border-top: 1px solid var(--line);
 
   background:
-    linear-gradient(
-      rgba(41, 39, 32, 0.025),
-      rgba(41, 39, 32, 0.025)
-    ),
+    linear-gradient(rgba(41, 39, 32, 0.025),
+      rgba(41, 39, 32, 0.025)),
     var(--paper-dark);
 
   padding: 1rem 0rem;
@@ -2112,11 +2353,9 @@
   padding: 18px 18px 22px;
 
   background:
-    linear-gradient(
-      135deg,
+    linear-gradient(135deg,
       rgba(255, 255, 255, 0.18),
-      transparent 25%
-    ),
+      transparent 25%),
     #f0e8d7;
 
   border: 1px solid rgba(41, 39, 32, 0.2);
@@ -2156,13 +2395,11 @@
   transform: translateX(-50%) rotate(-2deg);
 
   background:
-    repeating-linear-gradient(
-      90deg,
+    repeating-linear-gradient(90deg,
       rgba(229, 219, 191, 0.92) 0,
       rgba(229, 219, 191, 0.92) 7px,
       rgba(212, 198, 167, 0.92) 8px,
-      rgba(229, 219, 191, 0.92) 15px
-    );
+      rgba(229, 219, 191, 0.92) 15px);
 
   opacity: 0.9;
 
@@ -2213,13 +2450,11 @@
   pointer-events: none;
 
   background:
-    linear-gradient(
-      110deg,
+    linear-gradient(110deg,
       rgba(255, 255, 255, 0.12),
       transparent 30%,
       transparent 70%,
-      rgba(0, 0, 0, 0.06)
-    );
+      rgba(0, 0, 0, 0.06));
 
   mix-blend-mode: soft-light;
 }
@@ -2297,6 +2532,7 @@
 }
 
 @keyframes hintPulse {
+
   0%,
   100% {
     opacity: 0.4;
@@ -2318,6 +2554,7 @@
 }
 
 @media (max-width: 1000px) {
+
   /* Hide the desktop navbar entirely on non-desktop */
   .navbar {
     display: none;
@@ -2438,11 +2675,9 @@
     padding: 90px 32px 32px;
 
     background:
-      linear-gradient(
-        135deg,
+      linear-gradient(135deg,
         rgba(255, 255, 255, 0.15),
-        transparent 30%
-      ),
+        transparent 30%),
       #e8dfcc;
 
     border-left: 1px solid rgba(41, 39, 32, 0.18);
@@ -2552,6 +2787,7 @@
 ========================================================= */
 
 @media (max-width: 1000px) {
+
   .main,
   .footerMain {
     width: min(100% - 40px, 900px);
@@ -2599,6 +2835,30 @@
     transform: translate(-50%, -85px) rotate(270deg);
   }
 
+  /* Descriptor tablet adjustments */
+  .descriptor {
+    padding: 70px 0 90px;
+  }
+
+  .descriptorInner {
+    padding: 50px 50px;
+  }
+
+  .descriptorMain {
+    grid-template-columns: 70px 1fr;
+    gap: 30px;
+  }
+
+  .descriptorStamp {
+    right: 0;
+    width: 110px;
+    height: 110px;
+  }
+
+  .descriptorStamp strong {
+    font-size: 26px;
+  }
+
   .archiveStamp {
     top: 620px;
     right: 0;
@@ -2616,6 +2876,7 @@
 }
 
 @media (max-width: 700px) {
+
   .main,
   .footerMain {
     width: calc(100% - 28px);
@@ -2685,6 +2946,79 @@
 
   .clockHandMinute {
     height: 56px;
+  }
+
+  /* Descriptor mobile — collapse the outer folio chrome */
+  .descriptor {
+    padding: 40px 0 60px;
+  }
+
+  .descriptorInner {
+    padding: 34px 22px 40px;
+  }
+
+  .descriptorInner::before {
+    width: 100px;
+    height: 24px;
+  }
+
+  .descriptorInner::after {
+    right: 16px;
+    bottom: 14px;
+    font-size: 12px;
+  }
+
+  .descriptorTop {
+    grid-template-columns: 1fr auto;
+
+    padding-bottom: 16px;
+    margin-bottom: 24px;
+
+    font-size: 6px;
+  }
+
+  .descriptorTopCenter {
+    text-align: right;
+  }
+
+  .descriptorTop span:last-child {
+    display: none;
+  }
+
+  .descriptorMain {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .descriptorSide {
+    flex-direction: row;
+    align-items: center;
+
+    gap: 10px;
+
+    padding-top: 0;
+  }
+
+  .descriptorSideLabel {
+    writing-mode: initial;
+    letter-spacing: 0.25em;
+  }
+
+  .descriptorText {
+    font-size: clamp(19px, 6vw, 26px);
+    line-height: 1.35;
+  }
+
+  .descriptorRule {
+    margin-top: 26px;
+  }
+
+  .descriptorRule span:first-child {
+    width: 55px;
+  }
+
+  .descriptorStamp {
+    display: none;
   }
 
   .archiveStamp {
@@ -2853,8 +3187,8 @@
     font-size: 5px;
   }
 
-  .bottomOrnament > span:nth-child(2),
-  .bottomOrnament > span:nth-child(4) {
+  .bottomOrnament>span:nth-child(2),
+  .bottomOrnament>span:nth-child(4) {
     width: 35px;
   }
 }
@@ -2885,5 +3219,9 @@
   .timeDivider {
     opacity: 1;
     transform: none;
+  }
+
+  .descriptorSideDiamond {
+    animation: none;
   }
 }

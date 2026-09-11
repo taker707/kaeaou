@@ -989,6 +989,223 @@
 }
 
 /* =========================================================
+   PROJECT DESCRIPTOR
+   Matches Artbook paper / archival aesthetic
+========================================================= */
+
+.descriptor {
+  position: relative;
+
+  min-height: 420px;
+
+  padding: 8vw 9vw;
+
+  display: grid;
+
+  grid-template-columns:
+    80px 1fr 180px;
+
+  align-items: center;
+
+  border-bottom:
+    1px solid var(--line);
+
+  background: rgba(36, 34, 30, 0.018);
+
+  overflow: hidden;
+
+  animation:
+    introPageIn 1.2s .3s both;
+}
+
+.descriptor::before {
+  content: "PROJECT";
+
+  position: absolute;
+
+  left: -2vw;
+  bottom: -6vw;
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size:
+    clamp(120px, 22vw, 320px);
+
+  line-height: .7;
+
+  opacity: .03;
+
+  pointer-events: none;
+
+  animation:
+    backgroundWordIn 2s .5s both;
+}
+
+.descriptor::after {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+  right: 0;
+
+  width: 40%;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(36,34,30,.025)
+    );
+}
+
+.descriptorNumber {
+  align-self: start;
+
+  padding-top: 5px;
+
+  font-size: 10px;
+
+  writing-mode: vertical-rl;
+
+  letter-spacing: .3em;
+
+  color: var(--accent);
+
+  animation:
+    introNumberIn 1s .8s both;
+}
+
+.descriptorInner {
+  position: relative;
+
+  z-index: 2;
+
+  max-width: 720px;
+
+  min-width: 0;
+
+  animation:
+    introContent 1.2s .55s both;
+}
+
+.descriptorLabel {
+  margin: 0 0 22px;
+
+  font-size: 9px;
+
+  letter-spacing: .4em;
+
+  color: var(--accent);
+}
+
+.descriptorText {
+  margin: 0;
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size:
+    clamp(28px, 3.6vw, 54px);
+
+  font-weight: 400;
+
+  line-height: 1.22;
+
+  letter-spacing: -.012em;
+
+  color: var(--ink);
+}
+
+.descriptorText::first-letter {
+  color: var(--accent);
+}
+
+.descriptorRule {
+  width: 45%;
+  height: 1px;
+
+  margin: 42px 0 0;
+
+  background: var(--ink);
+
+  transform-origin: left;
+
+  animation:
+    ruleReveal 1.2s 1.1s both;
+}
+
+.descriptorStamp {
+  justify-self: end;
+
+  width: 120px;
+  height: 120px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 15px;
+
+  border: 1px solid var(--line);
+
+  transform: rotate(-6deg);
+
+  animation:
+    descriptorStampIn 1s 1s both;
+}
+
+.descriptorStamp strong {
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size: 52px;
+
+  font-weight: 400;
+
+  color: var(--accent);
+}
+
+.descriptorStamp span {
+  font-size: 7px;
+
+  letter-spacing: .25em;
+
+  text-align: center;
+
+  color: var(--muted);
+}
+
+@keyframes descriptorStampIn {
+  from {
+    opacity: 0;
+
+    transform:
+      rotate(-20deg)
+      scale(.5);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      rotate(-6deg)
+      scale(1);
+  }
+}
+
+/* =========================================================
    ARTBOOK
 ========================================================= */
 
@@ -2400,6 +2617,54 @@
     font-size: 9px;
   }
 
+  /* Descriptor — mobile */
+
+  .descriptor {
+    min-height: auto;
+
+    padding: 80px 6vw 70px;
+
+    grid-template-columns: 35px 1fr;
+
+    align-items: start;
+  }
+
+  .descriptor::after {
+    display: none;
+  }
+
+  .descriptorNumber {
+    padding-top: 8px;
+  }
+
+  .descriptorInner {
+    max-width: 100%;
+  }
+
+  .descriptorLabel {
+    font-size: 8px;
+
+    letter-spacing: .3em;
+
+    margin-bottom: 18px;
+  }
+
+  .descriptorText {
+    font-size: clamp(24px, 7.5vw, 34px);
+
+    line-height: 1.32;
+  }
+
+  .descriptorRule {
+    width: 100%;
+
+    margin: 32px 0 0;
+  }
+
+  .descriptorStamp {
+    display: none;
+  }
+
   .entry {
     padding: 70px 5vw;
   }
@@ -2501,6 +2766,22 @@
     margin-bottom: 12px;
   }
 
+  .descriptor {
+    padding: 70px 6vw 60px;
+
+    grid-template-columns: 24px 1fr;
+  }
+
+  .descriptorText {
+    font-size: clamp(21px, 6.8vw, 26px);
+  }
+
+  .descriptorLabel {
+    font-size: 7px;
+
+    letter-spacing: .25em;
+  }
+
   .sidebarLinks a {
     grid-template-columns: 22px 1fr auto;
     padding: 14px 0;
@@ -2543,5 +2824,17 @@
 
   .sidebar {
     transition: none;
+  }
+
+  .descriptor,
+  .descriptorNumber,
+  .descriptorInner,
+  .descriptorRule,
+  .descriptorStamp {
+    animation: none;
+
+    opacity: 1;
+
+    transform: none;
   }
 }
