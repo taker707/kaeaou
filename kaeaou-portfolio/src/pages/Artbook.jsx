@@ -464,12 +464,6 @@ function Artbook() {
                     "0"
                   )}
                 </span>
-
-                <span
-                  className={styles.viewLabel}
-                >
-                  VIEW ENTRY ↗
-                </span>
               </div>
             </article>
           ))}

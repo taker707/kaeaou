@@ -632,7 +632,7 @@ function Hero() {
 
               <p>
                 Projects developed through image,
-                atmosphere and narrative.
+                atmosphere, and narrative.
               </p>
             </div>
           </div>
