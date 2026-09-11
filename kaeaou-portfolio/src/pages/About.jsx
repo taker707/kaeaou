@@ -198,7 +198,7 @@ function About() {
                 target="_blank"
                 rel="noreferrer"
               >
-                IG — INSTAGRAM
+                INSTAGRAM
               </a>
 
               <a
@@ -206,7 +206,7 @@ function About() {
                 target="_blank"
                 rel="noreferrer"
               >
-                TK — TIKTOK
+                TIKTOK
               </a>
 
               <a
@@ -214,7 +214,7 @@ function About() {
                 target="_blank"
                 rel="noreferrer"
               >
-                X — TWITTER
+                X
               </a>
 
               <a
@@ -222,7 +222,7 @@ function About() {
                 target="_blank"
                 rel="noreferrer"
               >
-                VG — VGEN
+                VGEN
               </a>
 
               <a
@@ -230,7 +230,7 @@ function About() {
                 target="_blank"
                 rel="noreferrer"
               >
-                AS — ARTSTATION
+                ARTSTATION
               </a>
             </div>
 
