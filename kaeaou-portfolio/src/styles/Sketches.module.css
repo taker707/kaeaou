@@ -127,8 +127,8 @@
   background: var(--ink);
   opacity: 0.94;
   transform: rotate(-13deg);
-
   transform-origin: center;
+
   animation: heroSlashImpact 0.9s 0.15s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
@@ -448,7 +448,7 @@
   padding: 0;
   margin: 0;
   background: transparent;
-  cursor: pointer;
+  cursor: default;
   transform: rotate(var(--rotation));
 
   transition:
@@ -475,11 +475,6 @@
     scale(1.035)
     translateY(-10px);
   filter: drop-shadow(12px 14px 0 var(--accent-dark));
-}
-
-.card:focus-visible {
-  outline: 2px solid var(--ink);
-  outline-offset: 10px;
 }
 
 .cardInner {
@@ -517,6 +512,7 @@
   position: relative;
   aspect-ratio: 4 / 5;
   overflow: hidden;
+  cursor: zoom-in;
 }
 
 .imageWrap img {
@@ -590,6 +586,133 @@
   opacity: 1;
   transform: rotate(0deg);
 }
+
+/* =========================================================
+   LIGHTBOX
+========================================================= */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  background: rgba(38, 37, 31, 0.94);
+  cursor: zoom-out;
+
+  animation: lightboxIn 0.3s
+    cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.lightboxFrame {
+  position: relative;
+  width: min(900px, 92vw);
+  max-height: calc(100dvh - 80px);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  background: var(--paper-light);
+  color: var(--ink);
+  border: 1px solid rgba(233, 228, 216, 0.5);
+  box-shadow: 12px 12px 0 var(--accent);
+  cursor: default;
+
+  animation: lightboxFrameIn 0.4s
+    cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.lightboxTop,
+.lightboxBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  font-size: 8px;
+  font-weight: 1000;
+  letter-spacing: 1.5px;
+}
+
+.lightboxTop {
+  position: relative;
+  padding: 3px 2px 12px;
+}
+
+.lightboxBottom {
+  padding: 12px 2px 3px;
+}
+
+.lightboxBottom span:last-child {
+  color: var(--accent-dark);
+}
+
+.lightboxClose {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 1010;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid var(--paper-light);
+  background: var(--ink);
+  color: var(--paper-light);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 28px;
+  font-weight: 300;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.lightboxClose:hover {
+  background: var(--accent-dark);
+  transform: rotate(8deg);
+}
+
+.lightboxImageWrap {
+  position: relative;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--paper);
+}
+
+.lightboxImageWrap img {
+  display: block;
+  width: 100%;
+  max-height: calc(100dvh - 170px);
+  object-fit: contain;
+  filter:
+    grayscale(8%)
+    sepia(3%)
+    contrast(1.03);
+}
+
+.lightboxCorner {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  background: var(--ink);
+  color: var(--paper-light);
+  font-size: 27px;
+  font-weight: 300;
+  line-height: 1;
+  transform: rotate(8deg);
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
 
 .footer {
   position: relative;
@@ -718,117 +841,9 @@
   letter-spacing: 1.5px;
 }
 
-/* =========================================================
-   NON-DESKTOP FOOTER
-   Hidden on desktop and activated at 1000px and below.
-========================================================= */
-
 .mobileFooter {
   display: none;
 }
-
-.lightbox {
-  position: fixed;
-  z-index: 9999;
-  inset: 0;
-  background: rgba(38, 37, 31, 0.97);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 80px;
-
-  animation: lightboxImpact 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
-.lightbox::before {
-  content: "";
-  position: absolute;
-  inset: 20px;
-  border: 1px solid rgba(233, 228, 216, 0.3);
-  pointer-events: none;
-
-  animation: lightboxFrameIn 0.5s 0.05s cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
-.lightboxTop {
-  position: absolute;
-  z-index: 2;
-  top: 32px;
-  left: 42px;
-  right: 42px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: var(--paper);
-  font-size: 10px;
-  font-weight: 1000;
-  letter-spacing: 2px;
-}
-
-.closeButton {
-  width: 48px;
-  height: 48px;
-  border: 1px solid var(--paper);
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 30px;
-  line-height: 1;
-  cursor: pointer;
-
-  transition:
-    transform 0.2s ease,
-    background 0.2s ease;
-}
-
-.closeButton:hover {
-  transform: rotate(8deg);
-  background: var(--accent);
-  border-color: var(--accent);
-}
-
-.lightboxContent {
-  position: relative;
-  max-width: min(850px, 75vw);
-  max-height: 80vh;
-  padding: 15px;
-  background: var(--paper-light);
-  box-shadow: 15px 15px 0 var(--accent-dark);
-
-  animation: lightboxImageImpact 0.45s 0.05s cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
-.lightboxImage {
-  display: block;
-  max-width: 100%;
-  max-height: 75vh;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-}
-
-.closeButton {
-  animation: closeButtonIn 0.4s 0.2s cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
-.lightboxBottom {
-  position: absolute;
-  z-index: 2;
-  bottom: 32px;
-  left: 42px;
-  right: 42px;
-  display: flex;
-  justify-content: space-between;
-  color: var(--muted-light);
-  font-size: 9px;
-  font-weight: 900;
-  letter-spacing: 1.5px;
-
-  animation: lightboxBottomIn 0.4s 0.3s ease both;
-}
-
-/* =========================================================
-   DESKTOP / NON-DESKTOP NAVIGATION
-========================================================= */
 
 @media (max-width: 1000px) {
   .navbar {
@@ -893,8 +908,6 @@
       rotate(-45deg);
   }
 
-  /* CUSTOM SIDEBAR */
-
   .mobileMenu {
     position: fixed;
     z-index: 101;
@@ -912,6 +925,7 @@
     visibility: hidden;
     pointer-events: none;
     box-shadow: -18px 0 0 rgba(38, 37, 31, 0.08);
+
     transition:
       transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
       visibility 0.45s ease;
@@ -922,10 +936,9 @@
     visibility: visible;
     pointer-events: auto;
 
-    animation: mobileSidebarImpact 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation: mobileSidebarImpact 0.45s
+      cubic-bezier(0.16, 1, 0.3, 1) both;
   }
-
-  /* MOBILE SIDEBAR DIAGONAL REMOVED */
 
   .mobileMenu::before {
     display: none;
@@ -1035,7 +1048,8 @@
   }
 
   .mobileMenuOpen .mobileMenuLinks a {
-    animation: mobileSidebarLinkIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation: mobileSidebarLinkIn 0.5s
+      cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 
   .mobileMenuOpen .mobileMenuLinks a:nth-child(1) {
@@ -1059,11 +1073,9 @@
   }
 
   .grid {
-    grid-template-columns:
-      repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  /* Hide desktop footer and use custom footer */
   .footer {
     display: none;
   }
@@ -1079,8 +1091,6 @@
     overflow: hidden;
     border-top: 6px solid var(--accent);
   }
-
-  /* MOBILE FOOTER DIAGONAL REMOVED */
 
   .mobileFooterSlash {
     display: none;
@@ -1129,8 +1139,6 @@
     vertical-align: top;
     margin-left: 7px;
   }
-
-  /* DRAW / OBSERVE / REPEAT HIDDEN ON MOBILE */
 
   .mobileFooterStatement {
     display: none;
@@ -1292,8 +1300,7 @@
   }
 
   .heroTitle {
-    font-size:
-      clamp(65px, 20vw, 125px);
+    font-size: clamp(65px, 20vw, 125px);
   }
 
   .outlineText {
@@ -1374,8 +1381,6 @@
     margin-right: 10px;
   }
 
-  /* CUSTOM MOBILE FOOTER */
-
   .mobileFooter {
     min-height: 590px;
     padding: 40px 20px 18px;
@@ -1404,36 +1409,36 @@
     padding-top: 25px;
   }
 
+  /* LIGHTBOX — MOBILE */
   .lightbox {
-    padding: 55px 20px;
+    padding: 20px;
   }
 
-  .lightbox::before {
-    inset: 10px;
+  .lightboxFrame {
+    width: 100%;
+    max-height: calc(100dvh - 40px);
+    padding: 10px;
+    box-shadow: 7px 7px 0 var(--accent);
   }
 
-  .lightboxTop {
-    top: 18px;
-    left: 20px;
-    right: 20px;
+  .lightboxImageWrap img {
+    max-height: calc(100dvh - 145px);
   }
 
-  .lightboxContent {
-    max-width: 85vw;
-    padding: 8px;
-    box-shadow:
-      8px 8px 0 var(--accent-dark);
+  .lightboxClose {
+    top: 16px;
+    right: 16px;
+    width: 38px;
+    height: 38px;
+    font-size: 24px;
   }
 
-  .lightboxImage {
-    max-height: 70vh;
-  }
-
-  .lightboxBottom {
-    left: 20px;
-    right: 20px;
-    bottom: 18px;
-    font-size: 7px;
+  .lightboxCorner {
+    right: 10px;
+    bottom: 10px;
+    width: 32px;
+    height: 32px;
+    font-size: 23px;
   }
 }
 
@@ -1495,6 +1500,36 @@
 
   .footerBottom {
     font-size: 7px;
+  }
+
+  /* LIGHTBOX — SMALL MOBILE */
+  .lightbox {
+    padding: 12px;
+  }
+
+  .lightboxFrame {
+    padding: 8px;
+    box-shadow: 5px 5px 0 var(--accent);
+  }
+
+  .lightboxTop {
+    padding-bottom: 10px;
+  }
+
+  .lightboxBottom {
+    padding-top: 10px;
+  }
+
+  .lightboxImageWrap img {
+    max-height: calc(100dvh - 125px);
+  }
+
+  .lightboxClose {
+    top: 10px;
+    right: 10px;
+    width: 34px;
+    height: 34px;
+    font-size: 22px;
   }
 }
 
@@ -1802,13 +1837,51 @@
 }
 
 /* =========================================================
+   LIGHTBOX KEYFRAMES
+========================================================= */
+
+@keyframes lightboxIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes lightboxFrameIn {
+  0% {
+    opacity: 0;
+    transform:
+      scale(0.94)
+      rotate(-1.5deg)
+      translateY(20px);
+  }
+
+  70% {
+    opacity: 1;
+    transform:
+      scale(1.01)
+      rotate(0.3deg)
+      translateY(-3px);
+  }
+
+  100% {
+    opacity: 1;
+    transform:
+      scale(1)
+      rotate(0deg)
+      translateY(0);
+  }
+}
+
+/* =========================================================
    SCROLL REVEAL
-   Controlled by IntersectionObserver in Sketches.jsx
 ========================================================= */
 
 .archiveIntro.reveal {
   animation: none !important;
-
   opacity: 0;
 
   transform:
@@ -1830,7 +1903,6 @@
 
 .archiveHeader.reveal {
   animation: none !important;
-
   opacity: 0;
   transform: translateY(55px);
 
@@ -1846,7 +1918,6 @@
 
 .card.reveal {
   animation: none !important;
-
   opacity: 0;
 
   transform:
@@ -1866,8 +1937,6 @@
     translateY(0)
     rotate(var(--rotation));
 }
-
-/* Card stagger */
 
 .card.revealVisible:nth-child(1) {
   transition-delay: 0s;
@@ -1995,7 +2064,6 @@
 
 .footer.reveal {
   animation: none !important;
-
   opacity: 0;
   transform: translateY(60px);
 
@@ -2014,7 +2082,8 @@
 }
 
 .card:hover .imageWrap img {
-  animation: imagePunch 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: imagePunch 0.5s
+    cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 @keyframes imagePunch {
@@ -2038,7 +2107,8 @@
 }
 
 .card:hover .cardCross {
-  animation: crossSnap 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: crossSnap 0.35s
+    cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 @keyframes crossSnap {
@@ -2094,8 +2164,6 @@
   }
 }
 
-/* Footer diagonal */
-
 @keyframes footerDiagonalMove {
   from {
     transform:
@@ -2111,7 +2179,8 @@
 }
 
 .footerLinks a:hover {
-  animation: linkSnap 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: linkSnap 0.25s
+    cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @keyframes linkSnap {
@@ -2131,83 +2200,6 @@
     transform:
       translateX(6px)
       skew(-8deg);
-  }
-}
-
-@keyframes lightboxImpact {
-  0% {
-    opacity: 0;
-  }
-
-  60% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes lightboxFrameIn {
-  from {
-    opacity: 0;
-    transform: scale(1.04);
-  }
-
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes lightboxImageImpact {
-  0% {
-    opacity: 0;
-    transform:
-      scale(0.86)
-      rotate(-2deg);
-  }
-
-  70% {
-    opacity: 1;
-    transform:
-      scale(1.02)
-      rotate(0.4deg);
-  }
-
-  100% {
-    opacity: 1;
-    transform:
-      scale(1)
-      rotate(0);
-  }
-}
-
-@keyframes closeButtonIn {
-  from {
-    opacity: 0;
-    transform:
-      rotate(25deg)
-      scale(0.7);
-  }
-
-  to {
-    opacity: 1;
-    transform:
-      rotate(0)
-      scale(1);
-  }
-}
-
-@keyframes lightboxBottomIn {
-  from {
-    opacity: 0;
-    transform: translateY(15px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
   }
 }
 
@@ -2267,7 +2259,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .page * ,
+  .page *,
   .page *::before,
   .page *::after {
     animation-duration: 0.01ms !important;

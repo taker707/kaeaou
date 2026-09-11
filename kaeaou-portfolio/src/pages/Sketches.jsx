@@ -35,8 +35,8 @@ import ske31 from "../assets/sketches/ske31.jpg";
 import styles from "../styles/Sketches.module.css";
 
 function Sketches() {
-  const [lightboxImage, setLightboxImage] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [lightboxImage, setLightboxImage] = useState(null);
 
   const sketches = [
     ske1,
@@ -105,106 +105,64 @@ function Sketches() {
     "-2deg",
   ];
 
-  const openLightbox = (image, index) => {
-    setLightboxImage({
-      image,
-      index,
-    });
-  };
-
-  const closeLightbox = () => {
-    setLightboxImage(null);
-  };
-
   /*
-   * MOBILE MENU + LIGHTBOX SCROLL LOCK
+   * MOBILE MENU SCROLL LOCK
    *
-   * Uses position: fixed instead of only overflow:hidden.
-   * This prevents iOS Safari and other mobile browsers from
-   * continuing to scroll the page behind the open menu.
+   * This only controls the mobile navigation menu.
    */
   useEffect(() => {
-    const shouldLockScroll = menuOpen || lightboxImage;
-
-    if (!shouldLockScroll) {
+    if (!menuOpen) {
       return;
     }
 
-    const scrollY = window.scrollY;
-
     const originalBodyOverflow = document.body.style.overflow;
-    const originalBodyPosition = document.body.style.position;
-    const originalBodyTop = document.body.style.top;
-    const originalBodyWidth = document.body.style.width;
-
     const originalHtmlOverflow =
       document.documentElement.style.overflow;
 
     document.documentElement.style.overflow = "hidden";
-
     document.body.style.overflow = "hidden";
-    document.body.style.position = "fixed";
-    document.body.style.top = `-${scrollY}px`;
-    document.body.style.width = "100%";
 
     return () => {
       document.documentElement.style.overflow =
         originalHtmlOverflow;
 
       document.body.style.overflow = originalBodyOverflow;
-      document.body.style.position = originalBodyPosition;
-      document.body.style.top = originalBodyTop;
-      document.body.style.width = originalBodyWidth;
-
-      window.scrollTo(0, scrollY);
     };
-  }, [menuOpen, lightboxImage]);
+  }, [menuOpen]);
 
+  /*
+   * LIGHTBOX SCROLL LOCK + ESCAPE KEY
+   */
   useEffect(() => {
+    if (!lightboxImage) {
+      return;
+    }
+
+    const originalBodyOverflow = document.body.style.overflow;
+    const originalHtmlOverflow =
+      document.documentElement.style.overflow;
+
+    document.documentElement.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
+
     const handleKeyDown = (event) => {
-      if (!lightboxImage) return;
-
       if (event.key === "Escape") {
-        closeLightbox();
-      }
-
-      if (event.key === "ArrowLeft") {
-        setLightboxImage((current) => {
-          if (!current) return null;
-
-          const previousIndex =
-            current.index === 0
-              ? sketches.length - 1
-              : current.index - 1;
-
-          return {
-            image: sketches[previousIndex],
-            index: previousIndex,
-          };
-        });
-      }
-
-      if (event.key === "ArrowRight") {
-        setLightboxImage((current) => {
-          if (!current) return null;
-
-          const nextIndex =
-            current.index === sketches.length - 1
-              ? 0
-              : current.index + 1;
-
-          return {
-            image: sketches[nextIndex],
-            index: nextIndex,
-          };
-        });
+        setLightboxImage(null);
       }
     };
 
-    window.addEventListener("keydown", handleKeyDown);
+    document.addEventListener("keydown", handleKeyDown);
 
     return () => {
-      window.removeEventListener("keydown", handleKeyDown);
+      document.documentElement.style.overflow =
+        originalHtmlOverflow;
+
+      document.body.style.overflow = originalBodyOverflow;
+
+      document.removeEventListener(
+        "keydown",
+        handleKeyDown
+      );
     };
   }, [lightboxImage]);
 
@@ -227,7 +185,9 @@ function Sketches() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add(styles.revealVisible);
+            entry.target.classList.add(
+              styles.revealVisible
+            );
 
             observer.unobserve(entry.target);
           }
@@ -273,7 +233,9 @@ function Sketches() {
           className={`${styles.menuButton} ${
             menuOpen ? styles.menuButtonOpen : ""
           }`}
-          onClick={() => setMenuOpen((current) => !current)}
+          onClick={() =>
+            setMenuOpen((current) => !current)
+          }
           aria-label="Toggle navigation"
           aria-expanded={menuOpen}
         >
@@ -300,7 +262,10 @@ function Sketches() {
           <div className={styles.mobileMenuLine} />
 
           <div className={styles.mobileMenuLinks}>
-            <a href="/" onClick={() => setMenuOpen(false)}>
+            <a
+              href="/"
+              onClick={() => setMenuOpen(false)}
+            >
               <span>01</span>
               <strong>HOME</strong>
             </a>
@@ -362,7 +327,9 @@ function Sketches() {
 
           <h1 className={styles.heroTitle}>
             <span>SKETCH</span>
-            <span className={styles.outlineText}>ARCHIVE</span>
+            <span className={styles.outlineText}>
+              ARCHIVE
+            </span>
           </h1>
 
           <div className={styles.heroInfo}>
@@ -428,14 +395,12 @@ function Sketches() {
 
         <div className={styles.grid}>
           {sketches.map((image, index) => (
-            <button
+            <div
               key={index}
               className={styles.card}
               style={{
                 "--rotation": rotations[index],
               }}
-              onClick={() => openLightbox(image, index)}
-              aria-label={`Open sketch ${index + 1}`}
             >
               <div className={styles.cardInner}>
                 <div className={styles.cardTop}>
@@ -446,7 +411,32 @@ function Sketches() {
                   <span>KA / 26</span>
                 </div>
 
-                <div className={styles.imageWrap}>
+                <div
+                  className={styles.imageWrap}
+                  onClick={() =>
+                    setLightboxImage({
+                      image,
+                      index,
+                    })
+                  }
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`Open sketch ${
+                    index + 1
+                  }`}
+                  onKeyDown={(event) => {
+                    if (
+                      event.key === "Enter" ||
+                      event.key === " "
+                    ) {
+                      event.preventDefault();
+                      setLightboxImage({
+                        image,
+                        index,
+                      });
+                    }
+                  }}
+                >
                   <img
                     src={image}
                     alt={`Sketch ${index + 1}`}
@@ -455,21 +445,89 @@ function Sketches() {
 
                   <div className={styles.imageTint} />
 
-                  <div className={styles.cardCross}>+</div>
+                  <div className={styles.cardCross}>
+                    +
+                  </div>
                 </div>
 
                 <div className={styles.cardBottom}>
                   <span>
-                    STUDY {String(index + 1).padStart(2, "0")}
+                    STUDY{" "}
+                    {String(index + 1).padStart(2, "0")}
                   </span>
 
                   <span>VIEW →</span>
                 </div>
               </div>
-            </button>
+            </div>
           ))}
         </div>
       </main>
+
+      {/* LIGHTBOX */}
+      {lightboxImage && (
+        <div
+          className={styles.lightbox}
+          onClick={() => setLightboxImage(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-label={`Sketch ${
+            lightboxImage.index + 1
+          }`}
+        >
+          <button
+            className={styles.lightboxClose}
+            onClick={() =>
+              setLightboxImage(null)
+            }
+            aria-label="Close image"
+          >
+            ×
+          </button>
+
+          <div
+            className={styles.lightboxFrame}
+            onClick={(event) =>
+              event.stopPropagation()
+            }
+          >
+            <div className={styles.lightboxTop}>
+              <span>
+                FILE_
+                {String(
+                  lightboxImage.index + 1
+                ).padStart(3, "0")}
+              </span>
+
+              <span>KAEAOU / 2026</span>
+            </div>
+
+            <div className={styles.lightboxImageWrap}>
+              <img
+                src={lightboxImage.image}
+                alt={`Sketch ${
+                  lightboxImage.index + 1
+                }`}
+              />
+
+              <div className={styles.lightboxCorner}>
+                +
+              </div>
+            </div>
+
+            <div className={styles.lightboxBottom}>
+              <span>
+                STUDY{" "}
+                {String(
+                  lightboxImage.index + 1
+                ).padStart(2, "0")}
+              </span>
+
+              <span>ESC / CLOSE</span>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* DESKTOP FOOTER */}
       <footer className={styles.footer}>
@@ -494,15 +552,51 @@ function Sketches() {
             <div className={styles.footerLinks}>
               <span>CONNECT</span>
 
-              <a href="https://instagram.com/kaeaou" target="_blank">INSTAGRAM ↗</a>
-              <a href="https://tiktok.com/@kaeaouu" target="_blank">TIKTOK ↗</a>
-              <a href="https://x.com/kaeaouu" target="_blank">X ↗</a>
-              <a href="https://vgen.co/kaeaou" target="_blank">VGEN ↗</a>
-              <a href="https://artstation.com/kaeaou" target="_blank">ARTSTATION ↗</a>
+              <a
+                href="https://instagram.com/kaeaou"
+                target="_blank"
+                rel="noreferrer"
+              >
+                INSTAGRAM ↗
+              </a>
+
+              <a
+                href="https://tiktok.com/@kaeaouu"
+                target="_blank"
+                rel="noreferrer"
+              >
+                TIKTOK ↗
+              </a>
+
+              <a
+                href="https://x.com/kaeaouu"
+                target="_blank"
+                rel="noreferrer"
+              >
+                X ↗
+              </a>
+
+              <a
+                href="https://vgen.co/kaeaou"
+                target="_blank"
+                rel="noreferrer"
+              >
+                VGEN ↗
+              </a>
+
+              <a
+                href="https://artstation.com/kaeaou"
+                target="_blank"
+                rel="noreferrer"
+              >
+                ARTSTATION ↗
+              </a>
             </div>
           </div>
 
-          <div className={styles.footerNumber}>030</div>
+          <div className={styles.footerNumber}>
+            030
+          </div>
         </div>
 
         <div className={styles.footerBottom}>
@@ -538,7 +632,9 @@ function Sketches() {
         <div className={styles.mobileFooterDivider} />
 
         <div className={styles.mobileFooterNav}>
-          <span className={styles.mobileFooterSectionTitle}>
+          <span
+            className={styles.mobileFooterSectionTitle}
+          >
             NAVIGATE
           </span>
 
@@ -546,23 +642,26 @@ function Sketches() {
             <span>01</span>
             <strong>INSTAGRAM</strong>
           </a>
+
           <a href="https://tiktok.com/@kaeaouu">
             <span>02</span>
             <strong>TIKTOK</strong>
           </a>
+
           <a href="https://x.com/kaeaouu">
             <span>03</span>
             <strong>X</strong>
           </a>
+
           <a href="https://vgen.co/kaeaou">
             <span>04</span>
             <strong>VGEN</strong>
           </a>
+
           <a href="https://artstation.com/kaeaou">
             <span>05</span>
             <strong>ARTSTATION</strong>
           </a>
-
         </div>
 
         <div className={styles.mobileFooterDivider} />
@@ -589,49 +688,6 @@ function Sketches() {
           <span>END_</span>
         </div>
       </footer>
-
-      {lightboxImage && (
-        <div
-          className={styles.lightbox}
-          onClick={closeLightbox}
-          role="dialog"
-          aria-modal="true"
-        >
-          <div className={styles.lightboxTop}>
-            <span>
-              FILE_
-              {String(lightboxImage.index + 1).padStart(3, "0")}
-            </span>
-
-            <button
-              className={styles.closeButton}
-              onClick={closeLightbox}
-              aria-label="Close image"
-            >
-              ×
-            </button>
-          </div>
-
-          <div
-            className={styles.lightboxContent}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <img
-              src={lightboxImage.image}
-              alt={`Sketch ${lightboxImage.index + 1}`}
-              className={styles.lightboxImage}
-            />
-          </div>
-
-          <div className={styles.lightboxBottom}>
-            <span>
-              {String(lightboxImage.index + 1).padStart(3, "0")} / 030
-            </span>
-
-            <span>ESC CLOSE</span>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
