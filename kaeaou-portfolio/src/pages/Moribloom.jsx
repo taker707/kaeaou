@@ -38,11 +38,31 @@ const navItems = [
 ];
 
 const socials = [
-  { handle: "@kaeaou", label: "INSTAGRAM", href: "https://instagram.com/kaeaou" },
-  { handle: "@kaeaouu", label: "TIKTOK", href: "https://tiktok.com/@kaeaouu" },
-  { handle: "@kaeaouu", label: "X / TWITTER", href: "https://x.com/kaeaouu" },
-  { handle: "@kaeaou", label: "VGEN", href: "https://vgen.co/kaeaou" },
-  { handle: "@kaeaou", label: "ARTSTATION", href: "https://artstation.com/kaeaou" },
+  {
+    handle: "@kaeaou",
+    label: "INSTAGRAM",
+    href: "https://instagram.com/kaeaou",
+  },
+  {
+    handle: "@kaeaouu",
+    label: "TIKTOK",
+    href: "https://tiktok.com/@kaeaouu",
+  },
+  {
+    handle: "@kaeaouu",
+    label: "X / TWITTER",
+    href: "https://x.com/kaeaouu",
+  },
+  {
+    handle: "@kaeaou",
+    label: "VGEN",
+    href: "https://vgen.co/kaeaou",
+  },
+  {
+    handle: "@kaeaou",
+    label: "ARTSTATION",
+    href: "https://artstation.com/kaeaou",
+  },
 ];
 
 export default function Moribloom() {
@@ -172,13 +192,9 @@ export default function Moribloom() {
         }`}
       >
         <div className={styles.loadingContent}>
-          <span className={styles.loadingSmall}>
-            KAEAOUS ARCHIVE
-          </span>
+          <span className={styles.loadingSmall}>KAEAOUS ARCHIVE</span>
 
-          <h1 className={styles.loadingTitle}>
-            MORIBLOOM
-          </h1>
+          <h1 className={styles.loadingTitle}>MORIBLOOM</h1>
 
           <div className={styles.loadingLine}>
             <span />
@@ -205,9 +221,7 @@ export default function Moribloom() {
             KAEAOU ARCHIVE · MORIBLOOM
           </span>
 
-          <span className={styles.navMetaCenter}>
-            08 — 09 — 26
-          </span>
+          <span className={styles.navMetaCenter}>08 — 09 — 26</span>
 
           <span className={styles.navMetaRight}>
             MORIBLOOM 001—012
@@ -229,9 +243,7 @@ export default function Moribloom() {
 
             <span className={styles.logoText}>
               <strong>KAEAOU</strong>
-              <span className={styles.logoSub}>
-                VISUAL ARTIST
-              </span>
+              <span className={styles.logoSub}>VISUAL ARTIST</span>
             </span>
           </a>
 
@@ -267,7 +279,7 @@ export default function Moribloom() {
           </div>
         </div>
 
-        {/* Hover indicator line (follows hovered item) */}
+        {/* Hover indicator line */}
         <div
           className={`${styles.navIndicator} ${
             activeNav ? styles.navIndicatorActive : ""
@@ -303,9 +315,7 @@ export default function Moribloom() {
         aria-hidden={!sidebarOpen}
       >
         <div className={styles.sidebarInner}>
-          <span className={styles.sidebarLabel}>
-            KAEAOU / 004
-          </span>
+          <span className={styles.sidebarLabel}>KAEAOU / 004</span>
 
           <nav className={styles.sidebarNav}>
             {navItems.map((item, index) => (
@@ -341,9 +351,7 @@ export default function Moribloom() {
       ========================== */}
 
       <aside className={styles.progressRail}>
-        <div className={styles.progressLabel}>
-          MORIBLOOM
-        </div>
+        <div className={styles.progressLabel}>MORIBLOOM</div>
 
         <div className={styles.progressNumbers}>
           {artwork.map((piece) => (
@@ -403,6 +411,11 @@ export default function Moribloom() {
               <div className={styles.titleRule}>
                 <span />
               </div>
+
+              <p className={styles.heroDescription}>
+                Beneath the blooming lilies, a young tamer unknowingly takes
+                home a newborn deity of the forest.
+              </p>
             </div>
 
             <div className={styles.heroStamp}>
@@ -424,27 +437,6 @@ export default function Moribloom() {
           </div>
 
           <div className={styles.cornerMark} />
-        </section>
-
-        {/* =========================
-            PROJECT DESCRIPTOR
-        ========================== */}
-
-        <section className={styles.descriptor}>
-          <div className={styles.descriptorInner}>
-            <span className={styles.descriptorLabel}>
-              PROJECT DESCRIPTOR
-            </span>
-
-            <p className={styles.descriptorText}>
-              Beneath the blooming lilies, a young tamer unknowingly takes
-              home a newborn deity of the forest.
-            </p>
-
-            <div className={styles.descriptorRule}>
-              <span />
-            </div>
-          </div>
         </section>
 
         {/* =========================
@@ -643,17 +635,13 @@ export default function Moribloom() {
           </div>
 
           <div className={styles.lightboxBottom}>
-            <span>
-              KAEAOU
-            </span>
+            <span>KAEAOU</span>
 
             <span>
               {selectedImage.number} / 12
             </span>
 
-            <span>
-              ESC TO CLOSE
-            </span>
+            <span>ESC TO CLOSE</span>
           </div>
         </div>
       )}

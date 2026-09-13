@@ -389,10 +389,6 @@ function Artbook() {
           </div>
 
           <div className={styles.descriptorInner}>
-            <p className={styles.descriptorLabel}>
-              PROJECT DESCRIPTOR
-            </p>
-
             <p className={styles.descriptorText}>
               A project focused on creating a personal artbook that brings together my illustrations, character designs, and creative work.
             </p>
